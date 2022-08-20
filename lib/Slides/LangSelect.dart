@@ -11,6 +11,8 @@ import 'Auth/SignUp.dart';
 
 // }
 
+enum SingingCharacter { lafayette, jefferson }
+
 class LangSelect extends StatefulWidget {
   const LangSelect({Key? key}) : super(key: key);
 
@@ -33,6 +35,8 @@ class _LangSelectState extends State<LangSelect> {
 
   @override
   Widget build(BuildContext context) {
+    SingingCharacter? _character = SingingCharacter.lafayette;
+
     return Container(
         color: Colors.deepPurple,
         child: Scaffold(
@@ -42,29 +46,78 @@ class _LangSelectState extends State<LangSelect> {
                 style: TextStyle(fontSize: 40),
               ),
             ),
-            body: Row(
-              children: <Widget>[
-                // ListTile(
-                //   title: GestureDetector(
-                //       child: const Text('English'),
-                //       onTap: () => changeLang('eng')),
-                //   leading: Radio(
-                //       value: 'eng', groupValue: lang, onChanged: changeLang),
-                // ),
-                // ListTile(
-                //   title: GestureDetector(
-                //       child: const Text('Russian'),
-                //       onTap: () => changeLang('rus')),
-                //   leading: Radio(
-                //       value: 'rus', groupValue: lang, onChanged: changeLang),
-                // )
-                TextButton(
-                    onPressed: () => navigator(SignIn()),
-                    child: const Text('Sign In')),
-                TextButton(
-                    onPressed: () => navigator(SignUp()),
-                    child: const Text('Sign Up')),
-              ],
+            body: Container(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Radio<SingingCharacter>(
+                            value: SingingCharacter.lafayette,
+                            groupValue: _character,
+                            onChanged: (SingingCharacter? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                          Text("data"),
+                        ],
+                      )),
+                      GestureDetector(
+                        child: Radio<SingingCharacter>(
+                          value: SingingCharacter.lafayette,
+                          groupValue: _character,
+                          onChanged: (SingingCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      )
+                      // ListTile(
+                      //   title: const Text('Lafayette'),
+                      //   leading: Radio<SingingCharacter>(
+                      //     value: SingingCharacter.lafayette,
+                      //     groupValue: _character,
+                      //     onChanged: (SingingCharacter? value) {
+                      //       setState(() {
+                      //         _character = value;
+                      //       });
+                      //     },
+                      //   ),
+                      // ),
+                      // ListTile(
+                      //   title: const Text('Thomas Jefferson'),
+                      //   leading: Radio<SingingCharacter>(
+                      //     value: SingingCharacter.jefferson,
+                      //     groupValue: _character,
+                      //     onChanged: (SingingCharacter? value) {
+                      //       setState(() {
+                      //         _character = value;
+                      //       });
+                      //     },
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton(
+                          onPressed: () => navigator(SignIn()),
+                          child: const Text('Sign In')),
+                      TextButton(
+                          onPressed: () => navigator(SignUp()),
+                          child: const Text('Sign Up')),
+                    ],
+                  )
+                ],
+              ),
             )));
   }
 }

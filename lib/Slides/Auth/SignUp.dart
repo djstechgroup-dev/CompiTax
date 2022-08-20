@@ -32,22 +32,31 @@ class SignUp extends StatelessWidget {
         color: Colors.teal,
         child: ListView(
           children: [
-            Text('Hello!',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            TextField(),
-            TextField(),
-            TextField(),
-            ButtonBar(
-              children: [
-                TextButton(
-                    onPressed: _handleOKPressed, child: const Text('OK')),
-                BackButton(
-                  onPressed: _handleBackPressed,
-                )
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Expanded(
+                  child: new Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'First Name',
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: new Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Second Name',
+                      ),
+                    ),
+                  ),
+                ),
               ],
-            ),
-            TextButton(
-                onPressed: _handleSignUpPressed, child: const Text('Sign Up'))
+            )
           ],
         ),
       ),
