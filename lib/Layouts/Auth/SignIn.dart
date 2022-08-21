@@ -29,16 +29,13 @@ class _SignInState extends State<SignIn> {
         ),
         body: Container(
             padding: EdgeInsets.all(20),
-            constraints: BoxConstraints.expand(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-            ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
                     child: Image.asset(
-                      'assets/imgs/CompiTax_Logo.png',
+                      'assets/imgs/app_logos/logo2.png',
                       width: MediaQuery.of(context).size.width * 3 / 4,
                     )),
                 Inputcontainer(

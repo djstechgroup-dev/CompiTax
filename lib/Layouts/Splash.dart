@@ -52,7 +52,7 @@ class ImageSplash extends StatelessWidget {
       navigator: LangSelect(),
       durationInSeconds: 3,
       child: Image.asset(
-        'assets/imgs/_logo_.png',
+        'assets/imgs/app_logos/logo1.png',
         width: MediaQuery.of(context).size.width / 3,
       ),
     );

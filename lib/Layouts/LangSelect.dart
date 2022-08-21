@@ -37,7 +37,7 @@ class _LangSelectState extends State<LangSelect> {
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
-                  child: Image.asset('assets/imgs/CompiTax_Logo.png',
+                  child: Image.asset('assets/imgs/app_logos/logo2.png',
                       width: (MediaQuery.of(context).size.width - 40) * 3 / 4),
                 )
               ],

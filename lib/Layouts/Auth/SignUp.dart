@@ -12,17 +12,13 @@ class SignUp extends StatelessWidget {
         appBar: AppBar(title: const Text('SIGN UP WITH COMPANY')),
         body: Container(
           padding: const EdgeInsets.all(15),
-          constraints: BoxConstraints.expand(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-          ),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                   padding: const EdgeInsets.all(10),
                   child: Image.asset(
-                    'assets/imgs/CompiTax_Logo.png',
+                    'assets/imgs/app_logos/logo2.png',
                     width: MediaQuery.of(context).size.width * 3 / 4,
                   )),
               Inputcontainer(

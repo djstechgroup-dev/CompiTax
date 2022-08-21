@@ -19,7 +19,7 @@ class SocialSign extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(right: 10),
               child: Image.asset(
-                'assets/social_logos/truecaller-logo.png',
+                'assets/imgs/social_logos/truecaller-logo.png',
                 width: 25,
               )),
           const Text(
@@ -35,7 +35,7 @@ class SocialSign extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(right: 10),
               child: Image.asset(
-                'assets/social_logos/facebook-logo.png',
+                'assets/imgs/social_logos/facebook-logo.png',
                 width: 25,
               )),
           const Text(
@@ -51,7 +51,7 @@ class SocialSign extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: Image.asset(
-              'assets/social_logos/google-logo.png',
+              'assets/imgs/social_logos/google-logo.png',
               width: 25,
             ),
           ),
@@ -70,7 +70,7 @@ class SocialSign extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-              child: Image.asset('assets/imgs/CompiTax_Logo.png',
+              child: Image.asset('assets/imgs/app_logos/logo2.png',
                   width: (MediaQuery.of(context).size.width - 80 - 40) * 3 / 4),
             )
           ],
