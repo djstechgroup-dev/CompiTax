@@ -1,33 +1,72 @@
-import 'package:compitax/Slides/Auth/SocialSign.dart';
+import 'package:compitax/Layouts/Auth/SocialSign.dart';
+import 'package:compitax/Layouts/LangSelect.dart';
+import 'package:compitax/Layouts/MainBoard/index.dart';
+// import 'package:compitax/theme/Theme.dart';
+import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:compitax/Slides/LangSelect.dart';
-import 'Slides/Auth/SignIn.dart';
-import 'Slides/Auth/SignUp.dart';
-import 'Slides/Splash.dart';
+import 'Layouts/Auth/SignIn.dart';
+import 'Layouts/Auth/SignUp.dart';
+import 'Layouts/Splash.dart';
 
 void main() => runApp(MyApp());
+
+final ThemeData _kTheme = _buildTheme();
+
+ThemeData _buildTheme() {
+  final ThemeData base = ThemeData.light();
+  return base.copyWith(
+    colorScheme: base.colorScheme.copyWith(
+        primary: GlobalColors.primary, secondary: GlobalColors.secondary),
+    textTheme: _buildTextTheme(base.textTheme),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: GlobalColors.info,
+    ),
+    // inputDecorationTheme: const InputDecorationTheme(
+    //   border: CutCornersBorder(),
+    //   focusedBorder: CutCornersBorder(
+    //     borderSide: BorderSide(
+    //       width: 2.0,
+    //       color: kBrown900,
+    //     ),
+    //   ),
+    //   floatingLabelStyle: TextStyle(
+    //     color: kBrown900,
+    //   ),
+    // ),
+  );
+}
+
+TextTheme _buildTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+        headline5: base.headline5!.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        headline6: base.headline6!.copyWith(
+          fontSize: 18.0,
+        ),
+        caption: base.caption!.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14.0,
+        ),
+        bodyText1: base.bodyText1!.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+      )
+      .apply(
+          // fontFamily: 'Rubik',
+          // displayColor: kBrown900,
+          // bodyColor: kBrown900,
+          );
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'CompiTax',
-        // theme: ThemeData(
-        //   // Define the default brightness and colors.
-        //   // brightness: Brightness.dark,
-        //   primaryColor: Colors.lightBlue[800],
-
-        //   // Define the default font family.
-        //   fontFamily: 'Georgia',
-
-        //   // Define the default `TextTheme`. Use this to specify the default
-        //   // text styling for headlines, titles, bodies of text, and more.
-        //   textTheme: TextTheme(
-        //     bodyText1: const TextStyle(fontSize: 18.0),
-        //     bodyText2: const TextStyle(fontSize: 16.0),
-        //   ),
-        // ),
-        // // home: const ImageSplash(),
+        theme: _kTheme,
         initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
@@ -36,6 +75,7 @@ class MyApp extends StatelessWidget {
           "/social_sign": (BuildContext context) => const SocialSign(),
           "/sign_in": (BuildContext context) => const SignIn(),
           "/sign_up": (BuildContext context) => const SignUp(),
+          "/main": (BuildContext context) => const MainBoard(),
         });
   }
 }

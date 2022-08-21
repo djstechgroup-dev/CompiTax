@@ -1,7 +1,7 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_splash/flutter_animated_splash.dart';
-import 'package:compitax/Slides/LangSelect.dart';
+import 'package:compitax/Layouts/LangSelect.dart';
 
 class TextSplash extends StatelessWidget {
   const TextSplash({Key? key}) : super(key: key);

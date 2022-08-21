@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:compitax/utilities.dart';
 import 'package:flutter/material.dart';
 
 import 'package:compitax/theme/colors.dart';
@@ -49,10 +50,10 @@ class _LangSelectState extends State<LangSelect> {
               width: double.infinity,
               child: Column(children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                  padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
                   child: Text(
                       'Please select a language which you\'re going to use in this application.',
-                      style: Theme.of(context).textTheme.bodyText1),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -95,23 +96,7 @@ class _LangSelectState extends State<LangSelect> {
                 Container(
                     width: MediaQuery.of(context).size.width / 2,
                     child: TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              GlobalColors.primary),
-                          overlayColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return GlobalColors.secondary.withOpacity(0.04);
-                              }
-                              if (states.contains(MaterialState.focused) ||
-                                  states.contains(MaterialState.pressed)) {
-                                return GlobalColors.secondary.withOpacity(0.12);
-                              }
-                              return null; // Defer to the widget's default.
-                            },
-                          ),
-                        ),
+                        style: styleGenerator(GlobalColors.primary),
                         onPressed: () =>
                             Navigator.pushNamed(context, '/social_sign'),
                         child: const Text(

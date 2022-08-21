@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:compitax/Slides/LangSelect.dart';
+import 'package:compitax/Layouts/LangSelect.dart';
 
 class CustomSplash extends StatefulWidget {
   const CustomSplash({Key? key}) : super(key: key);

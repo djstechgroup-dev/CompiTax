@@ -68,6 +68,10 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    - assets/social_logos/google-logo.png
+    - assets/social_logos/facebook-logo.png
+    - assets/social_logos/truecaller-logo.png
+
     - assets/imgs/_logo_.png
     - assets/imgs/CompiTax_Logo.png
     - assets/imgs/splash_bg.png
