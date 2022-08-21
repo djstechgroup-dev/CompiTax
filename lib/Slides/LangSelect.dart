@@ -1,17 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+import 'package:compitax/theme/colors.dart';
 import 'Auth/SignIn.dart';
 import 'Auth/SignUp.dart';
-
-// class LangSelect extends StatelessWidget {
-//   const LangSelect({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-
-// }
-
-enum SingingCharacter { lafayette, jefferson }
 
 class LangSelect extends StatefulWidget {
   const LangSelect({Key? key}) : super(key: key);
@@ -21,103 +14,115 @@ class LangSelect extends StatefulWidget {
 }
 
 class _LangSelectState extends State<LangSelect> {
-  String lang = "eng";
+  String _lang = 'English';
 
-  void changeLang(lang) {
+  void changeLang(dynamic lang) {
     setState(() {
-      this.lang = lang.toString();
+      this._lang = lang.toString();
     });
-  }
-
-  void navigator(Widget next) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => next));
   }
 
   @override
   Widget build(BuildContext context) {
-    SingingCharacter? _character = SingingCharacter.lafayette;
-
-    return Container(
-        color: Colors.deepPurple,
-        child: Scaffold(
-            appBar: AppBar(
-              title: const Text(
-                'Lang Select',
-                style: TextStyle(fontSize: 40),
-              ),
+    return Scaffold(
+      body: Container(
+        color: GlobalColors.initial,
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+                  child: Image.asset('assets/imgs/CompiTax_Logo.png',
+                      width: (MediaQuery.of(context).size.width - 40) * 3 / 4),
+                )
+              ],
             ),
-            body: Container(
-              alignment: Alignment.center,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Radio<SingingCharacter>(
-                            value: SingingCharacter.lafayette,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter? value) {
-                              setState(() {
-                                _character = value;
-                              });
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 30),
+              decoration: BoxDecoration(
+                  color: GlobalColors.bgColorScreen,
+                  borderRadius: BorderRadius.circular(10)),
+              width: double.infinity,
+              child: Column(children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                  child: Text(
+                      'Please select a language which you\'re going to use in this application.',
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    GestureDetector(
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Radio(
+                          value: 'English',
+                          groupValue: _lang,
+                          onChanged: changeLang,
+                        ),
+                        const Text("English"),
+                      ],
+                    )),
+                    GestureDetector(
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Radio(
+                          value: 'Russian',
+                          groupValue: _lang,
+                          onChanged: changeLang,
+                        ),
+                        const Text("Russian"),
+                      ],
+                    )),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "You selected $_lang.",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    )
+                  ],
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              GlobalColors.primary),
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color?>(
+                            (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return GlobalColors.secondary.withOpacity(0.04);
+                              }
+                              if (states.contains(MaterialState.focused) ||
+                                  states.contains(MaterialState.pressed)) {
+                                return GlobalColors.secondary.withOpacity(0.12);
+                              }
+                              return null; // Defer to the widget's default.
                             },
                           ),
-                          Text("data"),
-                        ],
-                      )),
-                      GestureDetector(
-                        child: Radio<SingingCharacter>(
-                          value: SingingCharacter.lafayette,
-                          groupValue: _character,
-                          onChanged: (SingingCharacter? value) {
-                            setState(() {
-                              _character = value;
-                            });
-                          },
                         ),
-                      )
-                      // ListTile(
-                      //   title: const Text('Lafayette'),
-                      //   leading: Radio<SingingCharacter>(
-                      //     value: SingingCharacter.lafayette,
-                      //     groupValue: _character,
-                      //     onChanged: (SingingCharacter? value) {
-                      //       setState(() {
-                      //         _character = value;
-                      //       });
-                      //     },
-                      //   ),
-                      // ),
-                      // ListTile(
-                      //   title: const Text('Thomas Jefferson'),
-                      //   leading: Radio<SingingCharacter>(
-                      //     value: SingingCharacter.jefferson,
-                      //     groupValue: _character,
-                      //     onChanged: (SingingCharacter? value) {
-                      //       setState(() {
-                      //         _character = value;
-                      //       });
-                      //     },
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      TextButton(
-                          onPressed: () => navigator(SignIn()),
-                          child: const Text('Sign In')),
-                      TextButton(
-                          onPressed: () => navigator(SignUp()),
-                          child: const Text('Sign Up')),
-                    ],
-                  )
-                ],
-              ),
-            )));
+                        onPressed: () =>
+                            Navigator.pushNamed(context, '/social_sign'),
+                        child: const Text(
+                          'NEXT',
+                          style: TextStyle(color: Colors.white),
+                        )))
+              ]),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
