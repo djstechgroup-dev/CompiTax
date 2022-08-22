@@ -107,7 +107,7 @@ class SignUp extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
             child: TextButton(
-              style: styleGenerator(GlobalColors.primary),
+              style: btnStyleGenerator(GlobalColors.primary),
               onPressed: () {
                 Navigator.pushNamed(context, '/main');
               },

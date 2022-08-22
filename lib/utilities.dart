@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ButtonStyle styleGenerator(Color color) {
+ButtonStyle btnStyleGenerator(Color color) {
   return ButtonStyle(
     backgroundColor: MaterialStateProperty.all<Color>(color),
     overlayColor: MaterialStateProperty.resolveWith<Color?>(
