@@ -68,17 +68,30 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    # Logos
     - assets/imgs/app_logos/logo.png
     - assets/imgs/app_logos/logo1.png
     - assets/imgs/app_logos/logo2.png
     - assets/imgs/app_logos/splash_bg.png
     - assets/imgs/app_logos/phone_bg.png
 
+    # Social Marks
     - assets/imgs/social_logos/google-logo.png
     - assets/imgs/social_logos/facebook-logo.png
     - assets/imgs/social_logos/truecaller-logo.png
 
+    # State Stamp
+    - assets/imgs/stamp/_active.png
+    - assets/imgs/stamp/_completed.png
+    - assets/imgs/stamp/_cancelled.png
+    - assets/imgs/stamp/1-active.png
+    - assets/imgs/stamp/1-completed.png
+    - assets/imgs/stamp/1-cancelled.png
+
+    # others
     - assets/imgs/bg1.jpg
+    - assets/imgs/user1.jpg
+    - assets/imgs/user2.jpg
     - assets/imgs/from_to.png
 
     # An image asset can refer to one or more resolution-specific "variants", see

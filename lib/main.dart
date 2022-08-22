@@ -2,6 +2,7 @@ import 'package:compitax/Layouts/Auth/SocialSign.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
+import 'package:compitax/Layouts/Setting/Setting.dart';
 // import 'package:compitax/theme/Theme.dart';
 import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/onboarding",
+        initialRoute: "/setting",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           "/onboarding": (BuildContext context) => const ImageSplash(),
@@ -77,11 +78,8 @@ class MyApp extends StatelessWidget {
           "/sign_in": (BuildContext context) => const SignIn(),
           "/sign_up": (BuildContext context) => const SignUp(),
           "/main": (BuildContext context) => const MainBoard(),
-
-
-
-          "/my_bookings": (BuildContext context) => const MyBooking(),
-
+          "/my_bookings": (BuildContext context) => const MyBookings(),
+          "/setting": (BuildContext context) => const Setting(),
         });
   }
 }

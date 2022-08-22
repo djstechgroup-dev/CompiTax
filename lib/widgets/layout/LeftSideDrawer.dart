@@ -24,7 +24,7 @@ class LeftSideDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.local_taxi),
             title: const Text('BOOK YOUR RIDE'),
-            onTap: () => {},
+            onTap: () => {Navigator.of(context).pushNamed('/main')},
           ),
           ListTile(
             leading: const Icon(Icons.book_outlined),

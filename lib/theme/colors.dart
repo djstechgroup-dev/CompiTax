@@ -8,14 +8,15 @@ class GlobalColors {
   static const Color secondary = Color(0xff39d2c0);
 
   static const Color info = Color.fromARGB(255, 210, 242, 31);
+  static const Color bgColorScreen = Color.fromARGB(255, 240, 240, 240);
 
   static const Color label = Color.fromARGB(255, 177, 37, 86);
   static const Color error = Color.fromRGBO(245, 54, 92, 1.0);
   static const Color success = Color.fromRGBO(45, 206, 137, 1.0);
   static const Color warning = Color.fromRGBO(251, 99, 64, 1.0);
   static const Color header = Color.fromRGBO(82, 95, 127, 1.0);
-  static const Color bgColorScreen = Color.fromRGBO(248, 249, 254, 1.0);
   static const Color border = Color.fromRGBO(202, 209, 215, 1.0);
+
   static const Color inputSuccess = Color.fromRGBO(123, 222, 177, 1.0);
   static const Color inputError = Color.fromRGBO(252, 179, 164, 1.0);
   static const Color muted = Color.fromRGBO(136, 152, 170, 1.0);

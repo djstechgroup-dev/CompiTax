@@ -2,8 +2,8 @@ import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class Inputcontainer extends StatelessWidget {
-  final Widget child;
-  const Inputcontainer({Key? key, required this.child}) : super(key: key);
+  final Widget? child;
+  const Inputcontainer({Key? key, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
