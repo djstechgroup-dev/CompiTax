@@ -1,4 +1,5 @@
-import 'package:compitax/Layouts/MainBoard/LeftSideDrawer.dart';
+import 'package:compitax/widgets/layout/LeftSideDrawer.dart';
+import 'package:compitax/widgets/layout/MainLayout.dart';
 import 'package:flutter/material.dart';
 
 class MainBoard extends StatelessWidget {
@@ -8,11 +9,8 @@ class MainBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.lightGreenAccent,
-      child: Scaffold(
-          appBar: AppBar(
-            title: const Text('BOOK YOUR RIDE'),
-          ),
-          drawer: const LeftSideDrawer(),
+      child: Mainlayout(
+          title: 'BOOK YOUR RIDE',
           body: Column(
             children: [
               Container(

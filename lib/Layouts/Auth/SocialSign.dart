@@ -1,4 +1,4 @@
-import 'package:compitax/Layouts/MainBoard/index.dart';
+import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/utilities.dart';
 import 'package:flutter/material.dart';

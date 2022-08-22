@@ -68,6 +68,7 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    - assets/imgs/app_logos/logo.png
     - assets/imgs/app_logos/logo1.png
     - assets/imgs/app_logos/logo2.png
     - assets/imgs/app_logos/splash_bg.png
@@ -78,6 +79,7 @@ flutter:
     - assets/imgs/social_logos/truecaller-logo.png
 
     - assets/imgs/bg1.jpg
+    - assets/imgs/from_to.png
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

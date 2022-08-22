@@ -1,6 +1,7 @@
 import 'package:compitax/Layouts/Auth/SocialSign.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
-import 'package:compitax/Layouts/MainBoard/index.dart';
+import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
+import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
 // import 'package:compitax/theme/Theme.dart';
 import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +77,11 @@ class MyApp extends StatelessWidget {
           "/sign_in": (BuildContext context) => const SignIn(),
           "/sign_up": (BuildContext context) => const SignUp(),
           "/main": (BuildContext context) => const MainBoard(),
+
+
+
+          "/my_bookings": (BuildContext context) => const MyBooking(),
+
         });
   }
 }
