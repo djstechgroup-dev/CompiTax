@@ -13,7 +13,7 @@ class SocialSign extends StatelessWidget {
     dynamic theme = Theme.of(context);
 
     Widget BtnTruecaller = TextButton(
-        style: styleGenerator(GlobalColors.secondary),
+        style: btnStyleGenerator(GlobalColors.secondary),
         onPressed: () {},
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           Padding(
@@ -29,7 +29,7 @@ class SocialSign extends StatelessWidget {
         ]));
 
     Widget BtnFacebook = TextButton(
-        style: styleGenerator(Colors.blue),
+        style: btnStyleGenerator(Colors.blue),
         onPressed: () {},
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           Padding(
@@ -45,7 +45,7 @@ class SocialSign extends StatelessWidget {
         ]));
 
     Widget BtnGoogle = TextButton(
-        style: styleGenerator(Colors.red),
+        style: btnStyleGenerator(Colors.red),
         onPressed: () {},
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           Padding(
@@ -123,7 +123,7 @@ class SocialSign extends StatelessWidget {
               width: (MediaQuery.of(context).size.width - 40) / 2,
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: TextButton(
-                  style: styleGenerator(GlobalColors.white),
+                  style: btnStyleGenerator(GlobalColors.white),
                   onPressed: () => Navigator.pushNamed(context, '/sign_up'),
                   child: const Text('Sign Up')),
             ),
@@ -131,7 +131,7 @@ class SocialSign extends StatelessWidget {
               width: (MediaQuery.of(context).size.width - 40) / 2,
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: TextButton(
-                  style: styleGenerator(GlobalColors.white),
+                  style: btnStyleGenerator(GlobalColors.white),
                   onPressed: () => Navigator.pushNamed(context, '/sign_in'),
                   child: const Text('Sign In')),
             ),

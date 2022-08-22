@@ -66,10 +66,10 @@ class MyBookings extends StatefulWidget {
 class _MyBookingsState extends State<MyBookings> {
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
+    Size deviceSize = MediaQuery.of(context).size;
     Widget where_bar(String place) {
       return Container(
-          width: deviceWidth,
+          width: deviceSize.width,
           constraints:
               BoxConstraints(maxHeight: MediaQuery.of(context).size.height / 8),
           margin: const EdgeInsets.fromLTRB(0, 2.5, 5, 2.5),
@@ -121,7 +121,7 @@ class _MyBookingsState extends State<MyBookings> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                            width: deviceWidth * 1 / 10,
+                            width: deviceSize.width * 1 / 10,
                             padding: const EdgeInsets.symmetric(vertical: 20),
                             child: const Icon(
                               Icons.local_taxi,
@@ -151,7 +151,7 @@ class _MyBookingsState extends State<MyBookings> {
                                           ]),
                                     ),
                                     Container(
-                                      // width: deviceWidth * 2 / 12,
+                                      // width: deviceSize.width * 2 / 12,
                                       // alignment: Alignment.topRight,
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10),
@@ -195,12 +195,12 @@ class _MyBookingsState extends State<MyBookings> {
                                     ),
                                     Container(
                                         color: Colors.black26,
-                                        width: deviceWidth * 2 / 12,
+                                        width: deviceSize.width * 2 / 12,
                                         alignment: Alignment.bottomRight,
                                         // padding: const EdgeInsets.all(10),
                                         child: Image.asset(
                                           'assets/imgs/user2.jpg',
-                                          width: deviceWidth * 2 / 12,
+                                          width: deviceSize.width * 2 / 12,
                                         ))
                                   ],
                                 ),
@@ -215,7 +215,7 @@ class _MyBookingsState extends State<MyBookings> {
                     right: 10,
                     child: Image.asset(
                       stampPath,
-                      width: deviceWidth * 3 / 12 - 10,
+                      width: deviceSize.width * 3 / 12 - 10,
                       color: stateColor,
                     ))
             ],

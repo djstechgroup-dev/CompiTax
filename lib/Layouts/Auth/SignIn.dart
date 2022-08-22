@@ -89,7 +89,7 @@ class _SignInState extends State<SignIn> {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
             child: TextButton(
-              style: styleGenerator(GlobalColors.primary),
+              style: btnStyleGenerator(GlobalColors.primary),
               onPressed: () {
                 Navigator.pushNamed(context, '/main');
               },

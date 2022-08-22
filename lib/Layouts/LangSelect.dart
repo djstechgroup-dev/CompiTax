@@ -92,10 +92,10 @@ class _LangSelectState extends State<LangSelect> {
                     )
                   ],
                 ),
-                Container(
+                SizedBox(
                     width: MediaQuery.of(context).size.width / 2,
                     child: TextButton(
-                        style: styleGenerator(GlobalColors.primary),
+                        style: btnStyleGenerator(GlobalColors.primary),
                         onPressed: () =>
                             Navigator.pushNamed(context, '/social_sign'),
                         child: const Text(
