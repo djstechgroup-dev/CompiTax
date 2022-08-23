@@ -10,7 +10,7 @@ class Mainlayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(title ?? "")),
-      drawer: LeftSideDrawer(),
+      drawer: const LeftSideDrawer(),
       body: body,
     );
   }

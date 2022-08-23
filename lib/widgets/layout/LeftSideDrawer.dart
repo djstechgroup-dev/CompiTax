@@ -38,8 +38,8 @@ class LeftSideDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.share),
-            title: const Text('SHARE AAPP'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: const Text('SHARE APP'),
+            onTap: () => {Navigator.of(context).pushNamed('/share_app')},
           ),
           ListTile(
             leading: const Icon(Icons.star_rate),

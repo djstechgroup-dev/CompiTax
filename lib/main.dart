@@ -3,6 +3,7 @@ import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
 import 'package:compitax/Layouts/Settings/Settings.dart';
+import 'package:compitax/Layouts/SharedApp/ShareApp.dart';
 import 'package:compitax/Layouts/XSplash.dart';
 
 import 'package:compitax/theme/colors.dart';
@@ -67,11 +68,12 @@ TextTheme _buildTextTheme(TextTheme base) {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    bool _isAuth = false;
+    bool isAuth = true;
 
     // ignore: non_constant_identifier_names
-    SecureRender(Widget page) {
-      if (!_isAuth) {
+    Widget SecureRender(Widget page) {
+      // ignore: dead_code
+      if (!isAuth) {
         return const Splash(navigator: SignIn());
       }
       // ignore: dead_code
@@ -83,12 +85,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/onboarding",
+        initialRoute: "/share_app",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
-          // "/onboarding": (BuildContext context) => const ImageSplash(
-          //       navigator: LangSelect(),
-          //     ),
           '/onboarding': (BuildContext context) => const XSplash(
                 navigator: LangSelect(),
               ),
@@ -100,6 +99,7 @@ class MyApp extends StatelessWidget {
           "/my_bookings": (BuildContext context) =>
               SecureRender(const MyBookings()),
           "/settings": (BuildContext context) => SecureRender(const Settings()),
+          "/share_app": (BuildContext context) => SecureRender(const ShareApp()),
         });
   }
 }
