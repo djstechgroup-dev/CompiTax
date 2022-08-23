@@ -10,11 +10,11 @@ class TextSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: AnimatedSplash(
-          child: Text("Your Splash"),
+          child: const Text("Your Splash"),
           type: Transition.fade,
           curve: Curves.fastLinearToSlowEaseIn,
           backgroundColor: Colors.white,
-          navigator: LangSelect(),
+          navigator: const LangSelect(),
           durationInSeconds: 3),
     );
   }
@@ -28,33 +28,46 @@ class IconSplash extends StatelessWidget {
     return MaterialApp(
         home: AnimatedSplash(
             type: Transition.rightToLeft,
-            child: Icon(
+            child: const Icon(
               Icons.audiotrack,
               color: Colors.green,
               size: 30.0,
             ),
             curve: Curves.fastLinearToSlowEaseIn,
             backgroundColor: Colors.white,
-            navigator: LangSelect(),
+            navigator: const LangSelect(),
             durationInSeconds: 3));
   }
 }
 
 class ImageSplash extends StatelessWidget {
-  const ImageSplash({Key? key}) : super(key: key);
+  final Widget? navigator;
+  const ImageSplash({Key? key, required this.navigator}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedSplash(
+      // navigator: const LangSelect(),
+      navigator: navigator!,
       type: Transition.rightToLeftWithFade,
       curve: Curves.fastLinearToSlowEaseIn,
       backgroundColor: GlobalColors.initial,
-      navigator: LangSelect(),
       durationInSeconds: 3,
       child: Image.asset(
         'assets/imgs/app_logos/logo.png',
-        width: MediaQuery.of(context).size.width * 3 / 7,
+        // fit: BoxFit.fill,
+        width: MediaQuery.of(context).size.width * 2 / 3,
       ),
     );
+  }
+}
+
+class Splash extends StatelessWidget {
+  final Widget? navigator;
+  const Splash({Key? key, required this.navigator}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ImageSplash(navigator: navigator!);
   }
 }

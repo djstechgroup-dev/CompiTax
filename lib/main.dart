@@ -2,8 +2,9 @@ import 'package:compitax/Layouts/Auth/SocialSign.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
-import 'package:compitax/Layouts/Setting/Setting.dart';
-// import 'package:compitax/theme/Theme.dart';
+import 'package:compitax/Layouts/Settings/Settings.dart';
+import 'package:compitax/Layouts/XSplash.dart';
+
 import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'Layouts/Auth/SignIn.dart';
@@ -66,20 +67,39 @@ TextTheme _buildTextTheme(TextTheme base) {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    bool _isAuth = false;
+
+    // ignore: non_constant_identifier_names
+    SecureRender(Widget page) {
+      if (!_isAuth) {
+        return const Splash(navigator: SignIn());
+      }
+      // ignore: dead_code
+      else {
+        return page;
+      }
+    }
+
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/setting",
+        initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
-          "/onboarding": (BuildContext context) => const ImageSplash(),
+          // "/onboarding": (BuildContext context) => const ImageSplash(
+          //       navigator: LangSelect(),
+          //     ),
+          '/onboarding': (BuildContext context) => const XSplash(
+                navigator: LangSelect(),
+              ),
           "/lang_select": (BuildContext context) => const LangSelect(),
           "/social_sign": (BuildContext context) => const SocialSign(),
           "/sign_in": (BuildContext context) => const SignIn(),
           "/sign_up": (BuildContext context) => const SignUp(),
-          "/main": (BuildContext context) => const MainBoard(),
-          "/my_bookings": (BuildContext context) => const MyBookings(),
-          "/setting": (BuildContext context) => const Setting(),
+          "/main": (BuildContext context) => SecureRender(const MainBoard()),
+          "/my_bookings": (BuildContext context) =>
+              SecureRender(const MyBookings()),
+          "/settings": (BuildContext context) => SecureRender(const Settings()),
         });
   }
 }

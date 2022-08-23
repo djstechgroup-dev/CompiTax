@@ -34,7 +34,7 @@ class LeftSideDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('SETTINGS'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.of(context).pushNamed('/settings')},
           ),
           ListTile(
             leading: const Icon(Icons.share),
