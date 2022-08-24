@@ -1,6 +1,6 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/LeftSideDrawer.dart';
-import 'package:compitax/widgets/layout/MainLayout.dart';
+import 'package:compitax/widgets/layout/LeftSidebarLayout.dart';
 import 'package:flutter/material.dart';
 
 class ShareApp extends StatelessWidget {
@@ -38,26 +38,25 @@ class ShareApp extends StatelessWidget {
           // header part
           SliverAppBar(
             title: const Text(
-              'Sliver App Bar Title',
+              'SHARE APP',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: Colors.deepPurple,
+            // backgroundColor: Colors.deepPurple,
             centerTitle: false,
-            // 3
             expandedHeight: deviceSize.height / 3,
-            // 4
             pinned: true,
-            elevation: 0,
-            // 5
+            shadowColor: GlobalColors.success,
+            elevation: 5,
+            //
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(children: [
                 Container(
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/imgs/bg1.jpg"),
+                      image: AssetImage("assets/imgs/bg/img2.jpg"),
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -113,7 +112,8 @@ class ShareApp extends StatelessWidget {
           ),
           SliverFillRemaining(
               child: Container(
-                  // color: GlobalColors.black,
+                  // color: GlobalColors.success,
+                  // height: 10,
                   )),
         ],
       ),

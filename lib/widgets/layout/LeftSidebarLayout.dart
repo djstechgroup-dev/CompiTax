@@ -1,15 +1,17 @@
 import 'package:compitax/widgets/layout/LeftSideDrawer.dart';
 import 'package:flutter/material.dart';
 
-class Mainlayout extends StatelessWidget {
+class LeftSidebarLayout extends StatelessWidget {
   final String? title;
+  final AppBar? appbar;
   final Widget? body;
-  const Mainlayout({Key? key, this.title, this.body}) : super(key: key);
+  const LeftSidebarLayout({Key? key, this.title, this.appbar, this.body})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title ?? "")),
+      appBar: appbar ?? AppBar(title: Text(title ?? "")),
       drawer: const LeftSideDrawer(),
       body: body,
     );

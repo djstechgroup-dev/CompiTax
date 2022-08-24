@@ -2,6 +2,7 @@ import 'package:compitax/Layouts/Auth/SocialSign.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
+import 'package:compitax/Layouts/Rating/Rating.dart';
 import 'package:compitax/Layouts/Settings/Settings.dart';
 import 'package:compitax/Layouts/SharedApp/ShareApp.dart';
 import 'package:compitax/Layouts/XSplash.dart';
@@ -85,7 +86,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/share_app",
+        initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           '/onboarding': (BuildContext context) => const XSplash(
@@ -99,7 +100,9 @@ class MyApp extends StatelessWidget {
           "/my_bookings": (BuildContext context) =>
               SecureRender(const MyBookings()),
           "/settings": (BuildContext context) => SecureRender(const Settings()),
-          "/share_app": (BuildContext context) => SecureRender(const ShareApp()),
+          "/share_app": (BuildContext context) =>
+              SecureRender(const ShareApp()),
+          "/rating": (BuildContext context) => SecureRender(Rating()),
         });
   }
 }

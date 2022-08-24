@@ -9,7 +9,13 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('SIGN UP WITH COMPANY')),
+        appBar: AppBar(
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child:
+                const Text('SIGN UP WITH COMPANY', textAlign: TextAlign.center),
+          ),
+        ),
         body: ListView(padding: const EdgeInsets.all(15), children: [
           // Column(
           //   mainAxisAlignment: MainAxisAlignment.center,
@@ -105,22 +111,40 @@ class SignUp extends StatelessWidget {
             ]),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-            child: TextButton(
-              style: btnStyleGenerator(GlobalColors.primary),
-              onPressed: () {
-                Navigator.pushNamed(context, '/main');
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                alignment: Alignment.center,
-                child: const Text(
-                  'Sign Up',
-                  style: TextStyle(color: GlobalColors.white),
-                ),
-              ),
-            ),
-          )
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 5),
+                      child: TextButton(
+                        style: btnStyleGenerator(GlobalColors.primary),
+                        onPressed: () => Navigator.pushNamed(context, '/main'),
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(color: GlobalColors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 5),
+                      child: TextButton(
+                        style: btnStyleGenerator(GlobalColors.primary),
+                        onPressed: () =>
+                            Navigator.pushNamed(context, '/sign_in'),
+                        child: const Text(
+                          'Sign In',
+                          style: TextStyle(color: GlobalColors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ))
           //   ],
           // ),
         ]));

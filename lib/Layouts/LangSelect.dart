@@ -40,11 +40,10 @@ class _LangSelectState extends State<LangSelect> {
               ],
             ),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 30),
+              padding: const EdgeInsets.only(top: 20, bottom: 10),
               decoration: BoxDecoration(
                   color: GlobalColors.bgColorScreen,
                   borderRadius: BorderRadius.circular(10)),
-              width: double.infinity,
               child: Column(children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
@@ -57,7 +56,7 @@ class _LangSelectState extends State<LangSelect> {
                   children: [
                     GestureDetector(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Radio(
                             value: 'English',

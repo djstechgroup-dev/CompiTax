@@ -41,6 +41,7 @@ dependencies:
   flutter_animated_splash: ^0.0.10
   get_storage: ^2.0.3
   google_fonts: ^3.0.1
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -87,6 +88,26 @@ flutter:
     - assets/imgs/stamp/1-active.png
     - assets/imgs/stamp/1-completed.png
     - assets/imgs/stamp/1-cancelled.png
+
+    # background
+    - assets/imgs/bg/img1.jpg
+    - assets/imgs/bg/img2.jpg
+    - assets/imgs/bg/img3.jpg
+    - assets/imgs/bg/img4.jpg
+    # - assets/imgs/bg/img5.jpg
+    # - assets/imgs/bg/img6.jpg
+    - assets/imgs/bg/img7.jpg
+    - assets/imgs/bg/img8.jpg
+    - assets/imgs/bg/img9.jpg
+    - assets/imgs/bg/img10.jpg
+    - assets/imgs/bg/img11.jpg
+    - assets/imgs/bg/img12.jpg
+    - assets/imgs/bg/img13.jpg
+    - assets/imgs/bg/img101.png
+    - assets/imgs/bg/img102.jpg
+    - assets/imgs/bg/img103.png
+    - assets/imgs/bg/img104.jpg
+    - assets/imgs/bg/img105.jpg
 
     # others
     - assets/imgs/bg1.jpg

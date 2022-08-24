@@ -14,7 +14,7 @@ class LeftSideDrawer extends StatelessWidget {
                 color: Colors.green,
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage('assets/imgs/bg1.jpg'),
+                  image: AssetImage('assets/imgs/bg/img1.jpg'),
                 )),
             child: Text(
               'Side menu',
@@ -44,7 +44,7 @@ class LeftSideDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.star_rate),
             title: const Text('RATE APP'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.of(context).pushNamed('/rating')},
           ),
           ListTile(
             leading: const Icon(Icons.phone_in_talk),

@@ -25,9 +25,12 @@ class _SignInState extends State<SignIn> {
     TextEditingController emailCtrller = TextEditingController();
     return Scaffold(
         appBar: AppBar(
-          title: const Text('SIGN IN'),
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: const Text('SIGN IN', textAlign: TextAlign.center),
+          ),
         ),
-        body: ListView(padding: EdgeInsets.all(20), children: [
+        body: ListView(padding: const EdgeInsets.all(20), children: [
           // Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           // children: [
@@ -74,35 +77,44 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                 ),
-                // Container(
-                //   alignment: Alignment.centerRight,
-                //   child: Text(
-                //     _validAlert,
-                //     style: TextStyle(color: GlobalColors.error),
-                //   ),
-                // )
-                //   ],
-                // ),
               ]),
             ]),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-            child: TextButton(
-              style: btnStyleGenerator(GlobalColors.primary),
-              onPressed: () {
-                Navigator.pushNamed(context, '/main');
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                alignment: Alignment.center,
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(color: GlobalColors.white),
-                ),
-              ),
-            ),
-          )
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 5),
+                      child: TextButton(
+                        style: btnStyleGenerator(GlobalColors.primary),
+                        onPressed: () => Navigator.pushNamed(context, '/main'),
+                        child: const Text(
+                          'Sign In',
+                          style: TextStyle(color: GlobalColors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 5),
+                      child: TextButton(
+                        style: btnStyleGenerator(GlobalColors.primary),
+                        onPressed: () =>
+                            Navigator.pushNamed(context, '/sign_up'),
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(color: GlobalColors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ))
           //   ],
           // ),
         ]));
