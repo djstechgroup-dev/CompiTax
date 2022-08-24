@@ -1,3 +1,4 @@
+import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
 import 'package:flutter/material.dart';
 
 class LeftSideDrawer extends StatelessWidget {
@@ -66,6 +67,20 @@ class LeftSideDrawer extends StatelessWidget {
             title: const Text('LOGOUT'),
             onTap: () => {Navigator.of(context).pop()},
           ),
+          ListTile(
+            title: const Text('why cancel alert'),
+            onTap: () async {
+              String? result = await showDialog<String>(
+                context: context,
+                builder: (context) => const CancelDialog(),
+              );
+              // bottom snackbar
+              if (result != null) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(result)));
+              }
+            },
+          )
         ],
       ),
     );
