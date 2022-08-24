@@ -1,10 +1,13 @@
+import 'package:compitax/Layouts/AboutUs/AboutUs.dart';
 import 'package:compitax/Layouts/Auth/SocialSign.dart';
+import 'package:compitax/Layouts/ContactUs/ContactUs.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
 import 'package:compitax/Layouts/Rating/Rating.dart';
 import 'package:compitax/Layouts/Settings/Settings.dart';
 import 'package:compitax/Layouts/SharedApp/ShareApp.dart';
+import 'package:compitax/Layouts/Support/Support.dart';
 import 'package:compitax/Layouts/XSplash.dart';
 
 import 'package:compitax/theme/colors.dart';
@@ -86,7 +89,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/onboarding",
+        initialRoute: "/contact_us",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           '/onboarding': (BuildContext context) => const XSplash(
@@ -102,7 +105,11 @@ class MyApp extends StatelessWidget {
           "/settings": (BuildContext context) => SecureRender(const Settings()),
           "/share_app": (BuildContext context) =>
               SecureRender(const ShareApp()),
-          "/rating": (BuildContext context) => SecureRender(Rating()),
+          "/rating": (BuildContext context) => SecureRender(const Rating()),
+          "/contact_us": (BuildContext context) =>
+              SecureRender(const Contactus()),
+          "/about_us": (BuildContext context) => SecureRender(const AboutUs()),
+          "/support": (BuildContext context) => SecureRender(const Support()),
         });
   }
 }

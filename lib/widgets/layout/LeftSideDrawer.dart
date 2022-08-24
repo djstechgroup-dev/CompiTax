@@ -49,17 +49,17 @@ class LeftSideDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.phone_in_talk),
             title: const Text('CONTACT UP'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.of(context).pushNamed('/contact_us')},
           ),
           ListTile(
             leading: const Icon(Icons.info),
-            title: const Text('ABOUT'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: const Text('ABOUT US'),
+            onTap: () => {Navigator.of(context).pushNamed('/about_us')},
           ),
           ListTile(
             leading: const Icon(Icons.support),
             title: const Text('SUPPORT'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.of(context).pushNamed('/support')},
           ),
           ListTile(
             leading: const Icon(Icons.power_settings_new),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Rating extends StatefulWidget {
+  const Rating({Key? key}) : super(key: key);
+
   @override
   _RatingState createState() => _RatingState();
 }
@@ -42,73 +44,75 @@ class _RatingState extends State<Rating> {
           ),
         ],
       ),
-      body:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Expanded(
-          child: ListView(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: Column(children: [
-                  _heading('Tap To Rate'),
-                  _ratingBar(_ratingBarMode),
-                  Text(
-                    'Rating: $_rating',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ]),
-              ),
-              const SizedBox(height: 40.0),
-              Column(
-                children: const [
-                  Text(
-                    'Write a review (optional)',
-                    style: TextStyle(fontWeight: FontWeight.w300),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: TextField(
-                      minLines: 10,
-                      maxLines: 15,
-                      maxLength: 500,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Type your review",
-                          prefixIcon: Icon(Icons.reviews_outlined)),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Column(children: [
+                    _heading('Tap To Rate'),
+                    _ratingBar(_ratingBarMode),
+                    Text(
+                      'Rating: $_rating',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              const Text(
-                'Rating Bar Modes',
-                style: TextStyle(fontSize: 20),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 3, color: GlobalColors.black.withOpacity(0.8)),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _radio(1),
-                    // _radio(2),
-                    _radio(3),
+                  ]),
+                ),
+                const SizedBox(height: 40.0),
+                Column(
+                  children: const [
+                    Text(
+                      'Write a review (optional)',
+                      style: TextStyle(fontWeight: FontWeight.w300),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: TextField(
+                        minLines: 10,
+                        maxLines: 15,
+                        maxLength: 500,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "Type your review",
+                            prefixIcon: Icon(Icons.reviews_outlined)),
+                      ),
+                    ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ]),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                const Text(
+                  'Rating Bar Modes',
+                  style: TextStyle(fontSize: 20),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          width: 3, color: GlobalColors.black.withOpacity(0.8)),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _radio(1),
+                      // _radio(2),
+                      _radio(3),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 

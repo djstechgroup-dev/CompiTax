@@ -52,6 +52,7 @@ class _SignInState extends State<SignIn> {
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                       child: TextField(
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Email',
@@ -69,6 +70,7 @@ class _SignInState extends State<SignIn> {
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: TextField(
+                      keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Password',
