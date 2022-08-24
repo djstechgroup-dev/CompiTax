@@ -1,7 +1,7 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/utilities.dart';
 import 'package:compitax/widgets/SettingCard.dart';
-import 'package:compitax/widgets/layout/LeftSidebarLayout.dart';
+import 'package:compitax/widgets/layout/AppLayout.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -30,7 +30,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    return LeftSidebarLayout(
+    return AppLayout(
       title: 'SETTINGS',
       body: ListView(
         children: [

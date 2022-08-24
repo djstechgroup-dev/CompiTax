@@ -6,14 +6,16 @@ class GlobalColors {
   static const Color initial = Color(0xff230065);
   static const Color primary = Color(0xff4b39ef);
   static const Color secondary = Color(0xff39d2c0);
+  static const Color extra = Color(0xffaf62ef);
 
   static const Color info = Color.fromARGB(255, 210, 242, 31);
   static const Color bgColorScreen = Color.fromARGB(255, 240, 240, 240);
 
+  static const Color success = Color(0xff50c96a);
+  static const Color warning = Color(0xfff0a844);
+  static const Color error = Color(0xffff6038);
+
   static const Color label = Color.fromARGB(255, 177, 37, 86);
-  static const Color error = Color.fromRGBO(245, 54, 92, 1.0);
-  static const Color success = Color.fromRGBO(45, 206, 137, 1.0);
-  static const Color warning = Color.fromRGBO(251, 99, 64, 1.0);
   static const Color header = Color.fromRGBO(82, 95, 127, 1.0);
   static const Color border = Color.fromRGBO(202, 209, 215, 1.0);
 

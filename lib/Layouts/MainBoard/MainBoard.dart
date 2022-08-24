@@ -1,4 +1,4 @@
-import 'package:compitax/widgets/layout/LeftSidebarLayout.dart';
+import 'package:compitax/widgets/layout/AppLayout.dart';
 import 'package:flutter/material.dart';
 
 class MainBoard extends StatelessWidget {
@@ -8,7 +8,7 @@ class MainBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.lightGreenAccent,
-      child: LeftSidebarLayout(
+      child: AppLayout(
           title: 'BOOK YOUR RIDE',
           body: Column(
             children: [

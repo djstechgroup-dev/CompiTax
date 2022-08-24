@@ -1,5 +1,5 @@
 import 'package:compitax/theme/colors.dart';
-import 'package:compitax/widgets/layout/LeftSidebarLayout.dart';
+import 'package:compitax/widgets/layout/AppLayout.dart';
 import 'package:flutter/material.dart';
 
 class Contactus extends StatefulWidget {
@@ -12,7 +12,7 @@ class Contactus extends StatefulWidget {
 class _ContactusState extends State<Contactus> {
   @override
   Widget build(BuildContext context) {
-    return LeftSidebarLayout(
+    return AppLayout(
         title: 'CONTACT US',
         body: Column(
           children: [

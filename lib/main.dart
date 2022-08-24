@@ -1,5 +1,6 @@
 import 'package:compitax/Layouts/AboutUs/AboutUs.dart';
 import 'package:compitax/Layouts/Auth/SocialSign.dart';
+import 'package:compitax/Layouts/BookingDetails/BookingDetails.dart';
 import 'package:compitax/Layouts/ContactUs/ContactUs.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
@@ -89,7 +90,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/contact_us",
+        initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           '/onboarding': (BuildContext context) => const XSplash(
@@ -110,6 +111,8 @@ class MyApp extends StatelessWidget {
               SecureRender(const Contactus()),
           "/about_us": (BuildContext context) => SecureRender(const AboutUs()),
           "/support": (BuildContext context) => SecureRender(const Support()),
+          "/booking_detail": (BuildContext context) =>
+              SecureRender(const BookingDetails()),
         });
   }
 }

@@ -1,6 +1,6 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/LeftSideDrawer.dart';
-import 'package:compitax/widgets/layout/LeftSidebarLayout.dart';
+import 'package:compitax/widgets/layout/AppLayout.dart';
 import 'package:flutter/material.dart';
 
 class ShareApp extends StatelessWidget {
@@ -47,7 +47,16 @@ class ShareApp extends StatelessWidget {
             // backgroundColor: Colors.deepPurple,
             centerTitle: false,
             expandedHeight: deviceSize.height / 3,
+
+            // automaticallyImplyLeading: false,
+            // forceElevated: true,
+            // primary: false,
+
             pinned: true,
+            // floating: true,
+            // snap: true,
+            // stretch: true,
+
             shadowColor: GlobalColors.success,
             elevation: 5,
             //
@@ -61,16 +70,16 @@ class ShareApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  color: GlobalColors.header,
-                  child: const RotatedBox(
-                    quarterTurns: 1,
-                    child: Text('Hello World!',
-                        style:
-                            TextStyle(color: GlobalColors.error, fontSize: 28),
-                        overflow: TextOverflow.ellipsis),
-                  ),
-                ),
+                // Container(
+                //   color: GlobalColors.header,
+                //   child: const RotatedBox(
+                //     quarterTurns: 1,
+                //     child: Text('Hello World!',
+                //         style:
+                //             TextStyle(color: GlobalColors.error, fontSize: 28),
+                //         overflow: TextOverflow.ellipsis),
+                //   ),
+                // ),
               ]),
               stretchModes: const [StretchMode.blurBackground],
             ),
@@ -110,11 +119,13 @@ class ShareApp extends StatelessWidget {
               style: TextStyle(fontSize: 26),
             ),
           ),
-          SliverFillRemaining(
-              child: Container(
-                  // color: GlobalColors.success,
-                  // height: 10,
-                  )),
+
+          //  // this part is for scroll-flexible at bottom
+          // SliverFillRemaining(
+          //     child: Container(
+          //         // color: GlobalColors.success,
+          //         // height: 10,
+          //         )),
         ],
       ),
     );

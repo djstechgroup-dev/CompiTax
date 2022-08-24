@@ -1,4 +1,5 @@
 import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
+import 'package:compitax/Layouts/MainBoard/FareDialog.dart';
 import 'package:flutter/material.dart';
 
 class LeftSideDrawer extends StatelessWidget {
@@ -80,7 +81,26 @@ class LeftSideDrawer extends StatelessWidget {
                     .showSnackBar(SnackBar(content: Text(result)));
               }
             },
-          )
+          ),
+          ListTile(
+            title: const Text('total bill alert'),
+            onTap: () async {
+              String? result = await showDialog<String>(
+                context: context,
+                builder: (context) => const FareDialog(),
+              );
+              // bottom snackbar
+              if (result != null) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(result)));
+              }
+            },
+          ),
+          ListTile(
+              title: const Text('booking detail page'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/booking_detail');
+              })
         ],
       ),
     );

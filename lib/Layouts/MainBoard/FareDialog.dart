@@ -204,7 +204,8 @@ class FareDialog extends StatelessWidget {
                           },
                           child: const Text(
                             'PAY NOW',
-                            style: TextStyle(color: GlobalColors.white),
+                            style: TextStyle(
+                                color: GlobalColors.white, fontSize: 20),
                           ))))
             ],
           ),
