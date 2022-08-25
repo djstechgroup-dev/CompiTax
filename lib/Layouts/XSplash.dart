@@ -22,15 +22,20 @@ class XSplash extends StatefulWidget {
 }
 
 class _SplashScreen extends State<XSplash> {
+  late GetStorage __store;
   int splashtime = 3;
   // duration of splash screen on second
 
   @override
   void initState() {
     super.initState();
-    final GetStorage __store = GetStorage('compitax_data');
-    // __store.write('lang', 'English');
-    // __store.write('rating', {'num': 1.0, 'mode': 1, 'icon': Icons.star});
+
+    __store = GetStorage('compitax_data');
+    __store.write('lang', 'English');
+    __store.write('rating', {
+      'num': 1.0, 'mode': 1,
+      //  'icon': Icons.star
+    });
 
     Future.delayed(Duration(seconds: splashtime), () async {
       Navigator.of(context)

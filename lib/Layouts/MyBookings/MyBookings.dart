@@ -1,5 +1,6 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class BookingDataType {
@@ -87,7 +88,7 @@ class _MyBookingsState extends State<MyBookings> {
     }
 
     return AppLayout(
-      title: 'MY BOOKINGS',
+      appbar: const TitleAppbar(title: 'MY BOOKINGS'),
       body: ListView.separated(
         // padding: const EdgeInsets.all(5),
         itemCount: bookings_data.length,

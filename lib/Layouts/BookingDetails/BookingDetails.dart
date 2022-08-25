@@ -1,6 +1,7 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/utilities.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class BookingDetails extends StatefulWidget {
@@ -19,7 +20,7 @@ class _BookingDetailsState extends State<BookingDetails> {
     TextTheme textTheme = Theme.of(context).textTheme;
 
     return AppLayout(
-        title: 'BOOKING DETAILS',
+        appbar: const TitleAppbar(title: 'BOOKING DETAILS'),
         body: Container(
             color: GlobalColors.bgColorScreen,
             padding: const EdgeInsets.all(10),

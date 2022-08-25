@@ -2,6 +2,7 @@ import 'package:compitax/theme/colors.dart';
 import 'package:compitax/utilities.dart';
 import 'package:compitax/widgets/SettingCard.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -31,7 +32,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     return AppLayout(
-      title: 'SETTINGS',
+      appbar: const TitleAppbar(title: 'SETTINGS'),
       body: ListView(
         children: [
           SettingCard(

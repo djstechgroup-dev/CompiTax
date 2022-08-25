@@ -1,5 +1,6 @@
 import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
 import 'package:compitax/Layouts/MainBoard/FareDialog.dart';
+import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class LeftSideDrawer extends StatelessWidget {
@@ -11,18 +12,30 @@ class LeftSideDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-            decoration: BoxDecoration(
-                color: Colors.green,
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/imgs/bg/img1.jpg'),
-                )),
-            child: Text(
-              'Side menu',
-              style: TextStyle(color: Colors.white, fontSize: 25),
-            ),
-          ),
+          DrawerHeader(
+              decoration: BoxDecoration(color: GlobalColors.bgColorScreen),
+              child: Material(
+                shape: CircleBorder(
+                  side: BorderSide.none,
+                ),
+                child: CircleAvatar(
+                  backgroundColor: GlobalColors.bgColorScreen,
+                  radius: 50,
+                  child: Image.asset('assets/imgs/user2.jpg'),
+                ),
+              )),
+          // const DrawerHeader(
+          //   decoration: BoxDecoration(
+          //       color: Colors.green,
+          //       image: DecorationImage(
+          //         fit: BoxFit.fill,
+          //         image: AssetImage('assets/imgs/user2.jpg'),
+          //       )),
+          //   child: Text(
+          //     'Side menu',
+          //     style: TextStyle(color: Colors.white, fontSize: 25),
+          //   ),
+          // ),
           ListTile(
             leading: const Icon(Icons.local_taxi),
             title: const Text('BOOK YOUR RIDE'),
@@ -101,7 +114,7 @@ class LeftSideDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed('/booking_detail');
               }),
-              ListTile(
+          ListTile(
               title: const Text('your bill page'),
               onTap: () {
                 Navigator.of(context).pushNamed('/your_bill');

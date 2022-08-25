@@ -1,5 +1,6 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class Support extends StatelessWidget {
@@ -10,7 +11,7 @@ class Support extends StatelessWidget {
     Size deviceSize = MediaQuery.of(context).size;
 
     return AppLayout(
-        title: 'SUPPORT',
+        appbar: const TitleAppbar(title: 'SUPPORT'),
         body: Padding(
           padding: const EdgeInsets.all(30),
           child: Column(children: [

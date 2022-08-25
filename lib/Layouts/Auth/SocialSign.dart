@@ -1,6 +1,8 @@
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/utilities.dart';
+import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 import 'SignIn.dart';
 import 'SignUp.dart';
@@ -61,83 +63,91 @@ class SocialSign extends StatelessWidget {
           )
         ]));
 
-    return Container(
-      color: GlobalColors.initial,
-      padding: const EdgeInsets.all(20),
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-              child: Image.asset('assets/imgs/app_logos/logo2.png',
-                  width: (MediaQuery.of(context).size.width - 80 - 40) * 3 / 4),
-            )
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-                width: MediaQuery.of(context).size.width - 40,
-                color: GlobalColors.bgColorScreen,
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Text(
-                      'Log In to book a cab',
-                      style: theme.textTheme.bodyLarge,
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width - 40 - 20,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: BtnTruecaller,
-                    ),
-                    Container(
-                        width: MediaQuery.of(context).size.width - 60,
+    return Scaffold(
+      // AppLayout(
+      //     appbar: const TitleAppbar(title: "Sign with Social Accounts"),
+      body: Container(
+        color: GlobalColors.initial,
+        padding: const EdgeInsets.all(20),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                child: Image.asset('assets/imgs/app_logos/logo2.png',
+                    width:
+                        (MediaQuery.of(context).size.width - 80 - 40) * 3 / 4),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                  width: MediaQuery.of(context).size.width - 40,
+                  color: GlobalColors.bgColorScreen,
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Log In to book a cab',
+                        style: theme.textTheme.bodyLarge,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width - 40 - 20,
                         padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width:
-                                  (MediaQuery.of(context).size.width - 90) / 2,
-                              child: BtnFacebook,
-                            ),
-                            SizedBox(
-                              width:
-                                  (MediaQuery.of(context).size.width - 90) / 2,
-                              child: BtnGoogle,
-                            ),
-                          ],
-                        ))
-                  ],
-                ))
-          ],
-        ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              width: (MediaQuery.of(context).size.width - 40) / 2,
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: TextButton(
-                  style: btnStyleGenerator(GlobalColors.white),
-                  onPressed: () => Navigator.pushNamed(context, '/sign_up'),
-                  child: const Text('Sign Up')),
-            ),
-            Container(
-              width: (MediaQuery.of(context).size.width - 40) / 2,
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: TextButton(
-                  style: btnStyleGenerator(GlobalColors.white),
-                  onPressed: () => Navigator.pushNamed(context, '/sign_in'),
-                  child: const Text('Sign In')),
-            ),
-          ],
-        ),
-      ]),
+                        child: BtnTruecaller,
+                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width - 60,
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width:
+                                    (MediaQuery.of(context).size.width - 90) /
+                                        2,
+                                child: BtnFacebook,
+                              ),
+                              SizedBox(
+                                width:
+                                    (MediaQuery.of(context).size.width - 90) /
+                                        2,
+                                child: BtnGoogle,
+                              ),
+                            ],
+                          ))
+                    ],
+                  ))
+            ],
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                width: (MediaQuery.of(context).size.width - 40) / 2,
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: TextButton(
+                    style: btnStyleGenerator(GlobalColors.white),
+                    onPressed: () => Navigator.pushNamed(context, '/sign_up'),
+                    child: const Text('Sign Up')),
+              ),
+              Container(
+                width: (MediaQuery.of(context).size.width - 40) / 2,
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: TextButton(
+                    style: btnStyleGenerator(GlobalColors.white),
+                    onPressed: () => Navigator.pushNamed(context, '/sign_in'),
+                    child: const Text('Sign In')),
+              ),
+            ],
+          ),
+        ]),
+      ),
     );
   }
 }

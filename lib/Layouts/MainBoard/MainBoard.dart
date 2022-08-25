@@ -1,4 +1,5 @@
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class MainBoard extends StatelessWidget {
@@ -9,7 +10,7 @@ class MainBoard extends StatelessWidget {
     return Container(
       color: Colors.lightGreenAccent,
       child: AppLayout(
-          title: 'BOOK YOUR RIDE',
+          appbar: const TitleAppbar(title: 'BOOK YOUR RIDE'),
           body: Column(
             children: [
               Container(

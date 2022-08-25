@@ -1,5 +1,6 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class Contactus extends StatefulWidget {
@@ -13,7 +14,7 @@ class _ContactusState extends State<Contactus> {
   @override
   Widget build(BuildContext context) {
     return AppLayout(
-        title: 'CONTACT US',
+        appbar: const TitleAppbar(title: 'CONTACT US'),
         body: Column(
           children: [
             Expanded(
