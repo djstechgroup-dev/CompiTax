@@ -100,7 +100,12 @@ class LeftSideDrawer extends StatelessWidget {
               title: const Text('booking detail page'),
               onTap: () {
                 Navigator.of(context).pushNamed('/booking_detail');
-              })
+              }),
+              ListTile(
+              title: const Text('your bill page'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/your_bill');
+              }),
         ],
       ),
     );

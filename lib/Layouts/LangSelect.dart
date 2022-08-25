@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:compitax/utilities.dart';
 import 'package:compitax/theme/colors.dart';
+import 'package:get_storage/get_storage.dart';
 
 class LangSelect extends StatefulWidget {
   const LangSelect({Key? key}) : super(key: key);
@@ -11,11 +12,19 @@ class LangSelect extends StatefulWidget {
 }
 
 class _LangSelectState extends State<LangSelect> {
-  String _sLang = 'English';
+  final GetStorage __store = GetStorage('compitax_data');
+  late String _sLang;
 
-  void _handleChangeLang(dynamic lang) {
+  @override
+  void initState() {
+    super.initState();
+    _sLang = __store.read('lang');
+  }
+
+  void _handleChangeLang(String? lang) {
+    __store.write('lang', lang ?? 'English');
     setState(() {
-      _sLang = lang.toString();
+      _sLang = lang ?? 'English';
     });
   }
 

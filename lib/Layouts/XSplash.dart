@@ -9,6 +9,7 @@ import 'dart:async';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 class XSplash extends StatefulWidget {
   final Widget? navigator;
@@ -21,17 +22,20 @@ class XSplash extends StatefulWidget {
 }
 
 class _SplashScreen extends State<XSplash> {
-  int splashtime = 6;
+  int splashtime = 3;
   // duration of splash screen on second
 
   @override
   void initState() {
+    super.initState();
+    final GetStorage __store = GetStorage('compitax_data');
+    // __store.write('lang', 'English');
+    // __store.write('rating', {'num': 1.0, 'mode': 1, 'icon': Icons.star});
+
     Future.delayed(Duration(seconds: splashtime), () async {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => widget.navigator!));
     });
-
-    super.initState();
   }
 
   Future<Widget> loadFromFuture() async {

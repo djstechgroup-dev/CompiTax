@@ -26,7 +26,7 @@ class SignUp extends StatelessWidget {
                 'assets/imgs/app_logos/logo2.png',
                 width: MediaQuery.of(context).size.width * 3 / 4,
               )),
-          Inputcontainer(
+          InputContainer(
             child: Column(children: [
               Row(
                 // mainAxisSize: MainAxisSize.min,

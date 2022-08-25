@@ -34,8 +34,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   platform_device_id: ^1.0.1
-  splashscreen: ^1.3.5
-  flutter_native_splash: ^2.2.7
   flutter_splash_screen: ^1.0.0+6
   flutter_splash: ^1.0.1
   flutter_animated_splash: ^0.0.10
@@ -89,6 +87,9 @@ flutter:
     - assets/imgs/stamp/1-active.png
     - assets/imgs/stamp/1-completed.png
     - assets/imgs/stamp/1-cancelled.png
+
+    - assets/imgs/stamp/paidByOlaMoney.png
+    
 
     # background
     - assets/imgs/bg/img1.jpg

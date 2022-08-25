@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:compitax/theme/colors.dart';
+import 'package:compitax/widgets/IconAlert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get_storage/get_storage.dart';
 
 class Rating extends StatefulWidget {
   const Rating({Key? key}) : super(key: key);
@@ -10,21 +14,48 @@ class Rating extends StatefulWidget {
 }
 
 class _RatingState extends State<Rating> {
-  late double _rating;
-
+  final GetStorage __store = GetStorage('compitax_data');
+  late double _ratingNum;
   late int _ratingBarMode;
-
-  IconData? _selectedIcon;
+  late IconData _selectedIcon;
 
   @override
   void initState() {
     super.initState();
-    _rating = 1;
-    _ratingBarMode = 1;
+    _ratingNum = __store.read('rating')['num'] ?? 1.0;
+    _ratingBarMode = __store.read('rating')['mode'] ?? 1;
+    _selectedIcon = __store.read('rating')['icon'] ?? Icons.star;
+  }
+
+  void _handleChangeRating(double rating) {
+    __store.write('rating',
+        {'num': rating, 'mode': _ratingBarMode, 'icon': _selectedIcon});
+    setState(() {
+      _ratingNum = rating;
+    });
+  }
+
+  void _handleChangeRatingMode(int? ratingMode) {
+    __store.write('rating',
+        {'num': _ratingNum, 'mode': ratingMode, 'icon': _selectedIcon});
+    setState(() {
+      _ratingBarMode = ratingMode ?? 1;
+    });
+  }
+
+  void _handleChangeRatingIcon(IconData icon) {
+    __store.write(
+        'rating', {'num': _ratingNum, 'mode': _ratingBarMode, 'icon': icon});
+    setState(() {
+      _selectedIcon = icon;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    log('==================================================');
+    print(__store.read('rating'));
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Rating Bar'),
@@ -33,13 +64,12 @@ class _RatingState extends State<Rating> {
             icon: const Icon(Icons.settings),
             color: Colors.white,
             onPressed: () async {
-              _selectedIcon = await showDialog<IconData>(
+              IconData? result = await showDialog<IconData>(
                 context: context,
-                builder: (context) => IconAlert(),
+                builder: (context) => const IconAlert(),
               );
-              setState(() {
-                _ratingBarMode = 1;
-              });
+              _handleChangeRatingIcon(result!);
+              _handleChangeRatingMode(1);
             },
           ),
         ],
@@ -56,7 +86,7 @@ class _RatingState extends State<Rating> {
                     _heading('Tap To Rate'),
                     _ratingBar(_ratingBarMode),
                     Text(
-                      'Rating: $_rating',
+                      'Rating: $_ratingNum',
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ]),
@@ -132,22 +162,28 @@ class _RatingState extends State<Rating> {
       );
 
   Widget _radio(int value) {
+    late String strRadioMod;
+    switch (value) {
+      case 3:
+        strRadioMod = 'Face';
+        break;
+      case 1:
+      default:
+        strRadioMod = 'Star';
+        break;
+    }
     return Expanded(
       child: RadioListTile<int>(
         value: value,
         groupValue: _ratingBarMode,
         dense: true,
         title: Text(
-          'Rating Mode $value',
+          'Rating Mode : $strRadioMod',
           style: const TextStyle(
             fontSize: 12.0,
           ),
         ),
-        onChanged: (value) {
-          setState(() {
-            _ratingBarMode = value!;
-          });
-        },
+        onChanged: _handleChangeRatingMode,
       ),
     );
   }
@@ -156,23 +192,19 @@ class _RatingState extends State<Rating> {
     switch (mode) {
       case 1:
         return RatingBar.builder(
-          initialRating: _rating,
-          minRating: 1,
+          initialRating: _ratingNum,
+          // minRating: 0.5,
           direction: Axis.horizontal,
           allowHalfRating: true,
-          unratedColor: Colors.amber.withAlpha(50),
+          unratedColor: GlobalColors.rating.withAlpha(50),
           itemCount: 5,
           itemSize: 50.0,
           itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
           itemBuilder: (context, _) => Icon(
-            _selectedIcon ?? Icons.star,
-            color: Colors.amber,
+            _selectedIcon,
+            color: GlobalColors.rating,
           ),
-          onRatingUpdate: (rating) {
-            setState(() {
-              _rating = rating;
-            });
-          },
+          onRatingUpdate: _handleChangeRating,
           updateOnDrag: true,
         );
       // // image rating
@@ -188,16 +220,12 @@ class _RatingState extends State<Rating> {
       //       empty: _image('assets/heart_border.png'),
       //     ),
       //     itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-      //     onRatingUpdate: (rating) {
-      //       setState(() {
-      //         _rating = rating;
-      //       });
-      //     },
+      //     onRatingUpdate: _handleRatingUpdate,
       //     updateOnDrag: true,
       //   );
       case 3:
         return RatingBar.builder(
-          initialRating: _rating,
+          initialRating: _ratingNum,
           direction: Axis.horizontal,
           itemCount: 5,
           itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -232,59 +260,11 @@ class _RatingState extends State<Rating> {
                 return Container();
             }
           },
-          onRatingUpdate: (rating) {
-            setState(() {
-              _rating = rating;
-            });
-          },
+          onRatingUpdate: _handleChangeRating,
           updateOnDrag: true,
         );
       default:
         return Container();
     }
   }
-}
-
-class IconAlert extends StatelessWidget {
-  const IconAlert({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text(
-        'Select Icon',
-        style: TextStyle(
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      titlePadding: const EdgeInsets.all(12.0),
-      contentPadding: const EdgeInsets.all(0),
-      content: Wrap(
-        children: [
-          _iconButton(context, Icons.home),
-          _iconButton(context, Icons.airplanemode_active),
-          _iconButton(context, Icons.euro_symbol),
-          _iconButton(context, Icons.beach_access),
-          _iconButton(context, Icons.attach_money),
-          _iconButton(context, Icons.music_note),
-          _iconButton(context, Icons.android),
-          _iconButton(context, Icons.toys),
-          _iconButton(context, Icons.language),
-          _iconButton(context, Icons.landscape),
-          _iconButton(context, Icons.ac_unit),
-          _iconButton(context, Icons.star),
-        ],
-      ),
-    );
-  }
-
-  Widget _iconButton(BuildContext context, IconData icon) => IconButton(
-        icon: Icon(icon),
-        onPressed: () => Navigator.pop(context, icon),
-        splashColor: Colors.amberAccent,
-        color: Colors.amber,
-      );
 }

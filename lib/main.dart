@@ -9,15 +9,20 @@ import 'package:compitax/Layouts/Rating/Rating.dart';
 import 'package:compitax/Layouts/Settings/Settings.dart';
 import 'package:compitax/Layouts/SharedApp/ShareApp.dart';
 import 'package:compitax/Layouts/Support/Support.dart';
+import 'package:compitax/Layouts/YourBill/YourBill.dart';
+import 'package:flutter/material.dart';
+import 'package:compitax/Layouts/Auth/SignIn.dart';
+import 'package:compitax/Layouts/Auth/SignUp.dart';
+import 'package:compitax/Layouts/Splash.dart';
 import 'package:compitax/Layouts/XSplash.dart';
 
 import 'package:compitax/theme/colors.dart';
-import 'package:flutter/material.dart';
-import 'Layouts/Auth/SignIn.dart';
-import 'Layouts/Auth/SignUp.dart';
-import 'Layouts/Splash.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  await GetStorage.init('compitax_data');
+  runApp(MyApp());
+}
 
 final ThemeData _kTheme = _buildTheme();
 
@@ -113,6 +118,8 @@ class MyApp extends StatelessWidget {
           "/support": (BuildContext context) => SecureRender(const Support()),
           "/booking_detail": (BuildContext context) =>
               SecureRender(const BookingDetails()),
+          "/your_bill": (BuildContext context) =>
+              SecureRender(const YourBill()),
         });
   }
 }

@@ -10,6 +10,7 @@ class GlobalColors {
 
   static const Color info = Color.fromARGB(255, 210, 242, 31);
   static const Color bgColorScreen = Color.fromARGB(255, 240, 240, 240);
+  static const Color rating = Color.fromARGB(255, 255, 255, 0);
 
   static const Color success = Color(0xff50c96a);
   static const Color warning = Color(0xfff0a844);
