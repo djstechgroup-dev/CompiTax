@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
 class CustomRating extends StatefulWidget {
+  final int? itemCount;
+  final double? itemSize;
   final double ratingNum;
   final int ratingMode;
   final IconData selectedIcon;
@@ -11,6 +13,8 @@ class CustomRating extends StatefulWidget {
 
   const CustomRating(
       {Key? key,
+      this.itemCount,
+      this.itemSize,
       required this.ratingNum,
       required this.ratingMode,
       required this.selectedIcon,
@@ -55,8 +59,8 @@ class _CustomRatingState extends State<CustomRating> {
           direction: Axis.horizontal,
           allowHalfRating: true,
           unratedColor: GlobalColors.rating.withAlpha(50),
-          itemCount: 5,
-          itemSize: 50.0,
+          itemCount: widget.itemCount ?? 5,
+          itemSize: widget.itemSize ?? 50.0,
           itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
           itemBuilder: (context, _) => Icon(
             widget.selectedIcon,

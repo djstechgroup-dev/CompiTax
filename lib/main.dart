@@ -1,5 +1,6 @@
 import 'package:compitax/Layouts/AboutUs/AboutUs.dart';
 import 'package:compitax/Layouts/Auth/SocialSign.dart';
+import 'package:compitax/Layouts/BookingConfirmed/BookingConfirmed.dart';
 import 'package:compitax/Layouts/BookingDetails/BookingDetails.dart';
 import 'package:compitax/Layouts/ContactUs/ContactUs.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
@@ -98,7 +99,7 @@ class MyApp extends StatelessWidget {
         initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
-          '/onboarding': (BuildContext context) => const XSplash(
+          '/onboarding': (BuildContext context) => const Splash(
                 navigator: LangSelect(),
               ),
           "/lang_select": (BuildContext context) => const LangSelect(),
@@ -120,6 +121,8 @@ class MyApp extends StatelessWidget {
               SecureRender(const BookingDetails()),
           "/your_bill": (BuildContext context) =>
               SecureRender(const YourBill()),
+          "/booking_confirmed": (BuildContext context) =>
+              SecureRender(const BookingConfirmed()),
         });
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
 import 'package:compitax/widgets/layout/TitleAppbar.dart';
@@ -178,7 +180,7 @@ class _MyBookingsState extends State<MyBookings> {
                                       child: Padding(
                                         padding: const EdgeInsets.all(10),
                                         child: Image.asset(
-                                            'assets/imgs/from_to.png',
+                                            'assets/imgs/extra/from_to.png',
                                             height: 50),
                                       ),
                                     ),
@@ -200,7 +202,7 @@ class _MyBookingsState extends State<MyBookings> {
                                         alignment: Alignment.bottomRight,
                                         // padding: const EdgeInsets.all(10),
                                         child: Image.asset(
-                                          'assets/imgs/user2.jpg',
+                                          'assets/imgs/user1.jpg',
                                           width: deviceSize.width * 2 / 12,
                                         ))
                                   ],

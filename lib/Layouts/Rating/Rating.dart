@@ -105,9 +105,10 @@ class _RatingState extends State<Rating> {
                         maxLines: 15,
                         maxLength: 500,
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: "Type your review",
-                            prefixIcon: Icon(Icons.reviews_outlined)),
+                          border: OutlineInputBorder(),
+                          hintText: "Type your review",
+                          // prefixIcon: Icon(Icons.reviews_outlined),
+                        ),
                       ),
                     ),
                   ],

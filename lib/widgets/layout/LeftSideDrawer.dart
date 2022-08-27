@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
 import 'package:compitax/Layouts/MainBoard/FareDialog.dart';
 import 'package:compitax/theme/colors.dart';
@@ -8,20 +10,22 @@ class LeftSideDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-              decoration: BoxDecoration(color: GlobalColors.bgColorScreen),
+              decoration:
+                  const BoxDecoration(color: GlobalColors.bgColorScreen),
               child: Material(
-                shape: CircleBorder(
+                shape: const CircleBorder(
                   side: BorderSide.none,
                 ),
                 child: CircleAvatar(
                   backgroundColor: GlobalColors.bgColorScreen,
-                  radius: 50,
-                  child: Image.asset('assets/imgs/user2.jpg'),
+    // radius: deviceSize.width / 3,
+                  backgroundImage: const AssetImage('assets/imgs/user1.jpg'),
                 ),
               )),
           // const DrawerHeader(
@@ -29,7 +33,7 @@ class LeftSideDrawer extends StatelessWidget {
           //       color: Colors.green,
           //       image: DecorationImage(
           //         fit: BoxFit.fill,
-          //         image: AssetImage('assets/imgs/user2.jpg'),
+          //         image: AssetImage('assets/imgs/user1.jpg'),
           //       )),
           //   child: Text(
           //     'Side menu',
@@ -118,6 +122,11 @@ class LeftSideDrawer extends StatelessWidget {
               title: const Text('your bill page'),
               onTap: () {
                 Navigator.of(context).pushNamed('/your_bill');
+              }),
+          ListTile(
+              title: const Text('booking confirmed page'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/booking_confirmed');
               }),
         ],
       ),

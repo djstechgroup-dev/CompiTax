@@ -1,6 +1,7 @@
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/widgets/layout/LeftSideDrawer.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
+import 'package:compitax/widgets/layout/TitleAppbar.dart';
 import 'package:flutter/material.dart';
 
 class ShareApp extends StatelessWidget {
@@ -31,63 +32,15 @@ class ShareApp extends StatelessWidget {
 
     Size deviceSize = MediaQuery.of(context).size;
 
-    return Scaffold(
-      drawer: const LeftSideDrawer(),
+    return AppLayout(
+      appbar: const TitleAppbar(title: 'SHARE APP'),
       body: CustomScrollView(
         slivers: [
-          // header part
-          SliverAppBar(
-            title: const Text(
-              'SHARE APP',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            // backgroundColor: Colors.deepPurple,
-            centerTitle: false,
-            expandedHeight: deviceSize.height / 3,
-
-            // automaticallyImplyLeading: false,
-            // forceElevated: true,
-            // primary: false,
-
-            pinned: true,
-            // floating: true,
-            // snap: true,
-            // stretch: true,
-
-            shadowColor: GlobalColors.success,
-            elevation: 5,
-            //
-            flexibleSpace: FlexibleSpaceBar(
-              background: Stack(children: [
-                Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/imgs/bg/img2.jpg"),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                // Container(
-                //   color: GlobalColors.header,
-                //   child: const RotatedBox(
-                //     quarterTurns: 1,
-                //     child: Text('Hello World!',
-                //         style:
-                //             TextStyle(color: GlobalColors.error, fontSize: 28),
-                //         overflow: TextOverflow.ellipsis),
-                //   ),
-                // ),
-              ]),
-              stretchModes: const [StretchMode.blurBackground],
-            ),
-          ),
+          // _buildAppBar(context),
 
           // content part
           SliverPadding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
             sliver: SliverGrid.count(
               mainAxisSpacing: 10,
               crossAxisSpacing: 15,
@@ -127,6 +80,56 @@ class ShareApp extends StatelessWidget {
           //         // height: 10,
           //         )),
         ],
+      ),
+    );
+  }
+
+  SliverAppBar _buildAppBar(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
+    return // header part
+        SliverAppBar(
+      title: const Text(
+        'SHARE APP',
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      // backgroundColor: Colors.deepPurple,
+      centerTitle: false,
+      expandedHeight: deviceSize.height / 3,
+
+      // automaticallyImplyLeading: false,
+      // forceElevated: true,
+      // primary: false,
+      pinned: true,
+      // floating: true,
+      // snap: true,
+      // stretch: true,
+
+      shadowColor: GlobalColors.success,
+      elevation: 5,
+      //
+      flexibleSpace: FlexibleSpaceBar(
+        background: Stack(
+          children: [
+            // Container(
+            //   // decoration: const BoxDecoration(
+            //   //   image: DecorationImage(
+            //   //     image: AssetImage("assets/imgs/bg/img2.jpg"),
+            //   //     fit: BoxFit.contain,
+            //   //   ),
+            //   // ),
+            //   child: const Text(
+            //     "These apps are the shared apps what you installed on this device.",
+            //     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            //   ),
+            // ),
+            Image.asset("assets/imgs/bg/img2.jpg",
+                height: deviceSize.height / 3)
+          ],
+        ),
+        stretchModes: const [StretchMode.blurBackground],
       ),
     );
   }

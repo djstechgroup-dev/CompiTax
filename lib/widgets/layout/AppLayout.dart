@@ -16,9 +16,11 @@ class AppLayout extends StatelessWidget {
     //   Scaffold.of(context).openEndDrawer();
     // }
 
+    double height = appbar != null ? 50 : 0;
+
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(50), child: appbar!),
+          preferredSize: Size.fromHeight(height), child: appbar ?? Container()),
       drawer: const LeftSideDrawer(),
       body: body,
     );

@@ -12,10 +12,13 @@ class AboutUs extends StatelessWidget {
       appbar: TitleAppbar(title: 'ABOUT US'),
       body: Container(
           padding: const EdgeInsets.all(20),
-          child: Text(
-            "Welcome to Taxi Comparison Service!\n We're the essential Top Services Provider base on online services as well as offline car rental services.",
-            style: Theme.of(context).textTheme.headline5,
-          )),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              "Welcome to Taxi Comparison Service!\n We're the essential Top Services Provider base on online services as well as offline car rental services.",
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            const SizedBox(height: 150)
+          ])),
     );
   }
 }

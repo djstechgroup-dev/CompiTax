@@ -25,12 +25,12 @@ class _BookingDetailsState extends State<BookingDetails> {
             color: GlobalColors.bgColorScreen,
             padding: const EdgeInsets.all(10),
             child: Column(children: [
+              // content
               Expanded(
                   child: Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 10),
                       child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text('Pickup Location',
                               style: Theme.of(context).textTheme.headline6),
@@ -39,7 +39,10 @@ class _BookingDetailsState extends State<BookingDetails> {
                               style: TextStyle(fontSize: 16),
                               textAlign: TextAlign.center),
                           const SizedBox(height: 30),
+
+                          //  info showing container
                           Stack(children: [
+                            // body container
                             Container(
                               width: MediaQuery.of(context).size.width - 20,
                               margin: EdgeInsets.symmetric(
@@ -159,6 +162,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                                 ],
                               ),
                             ),
+                            // rounded image    center
                             Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -177,6 +181,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                                   )
                                 ]),
                           ]),
+
                           const Text('Booking details will be sent to',
                               style: TextStyle(fontSize: 16),
                               textAlign: TextAlign.center),
@@ -192,11 +197,11 @@ class _BookingDetailsState extends State<BookingDetails> {
                         ],
                       ))),
               const SizedBox(height: 10),
+              // [book] bottom button
               Row(
                 children: [
                   Expanded(
                       child: Container(
-                          // color: GlobalColors.primary,
                           child: TextButton(
                               onPressed: () {},
                               style: btnStyleGenerator(GlobalColors.primary),

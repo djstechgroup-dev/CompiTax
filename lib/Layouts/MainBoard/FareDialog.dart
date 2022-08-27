@@ -183,7 +183,8 @@ class FareDialog extends StatelessWidget {
                         child: Container(
                           height: 30,
                           color: Colors.grey,
-                          child: const Text('___progress_bar___'),
+                          child: Row(
+                              children: [Text('=========================')]),
                         ),
                       ),
                       Text('\$32.00',

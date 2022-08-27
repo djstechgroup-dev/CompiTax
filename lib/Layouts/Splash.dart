@@ -56,7 +56,7 @@ class ImageSplash extends StatelessWidget {
       child: Image.asset(
         'assets/imgs/app_logos/logo.png',
         // fit: BoxFit.fill,
-        width: MediaQuery.of(context).size.width * 2 / 3,
+        width: MediaQuery.of(context).size.width * 2 / 5,
       ),
     );
   }
