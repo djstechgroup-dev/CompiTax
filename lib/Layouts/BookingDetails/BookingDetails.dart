@@ -203,7 +203,10 @@ class _BookingDetailsState extends State<BookingDetails> {
                   Expanded(
                       child: Container(
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed('/booking_confirmed');
+                              },
                               style: btnStyleGenerator(GlobalColors.primary),
                               child: const Text(
                                 'BOOK',

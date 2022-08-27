@@ -11,6 +11,7 @@ import 'package:compitax/Layouts/Settings/Settings.dart';
 import 'package:compitax/Layouts/SharedApp/ShareApp.dart';
 import 'package:compitax/Layouts/Support/Support.dart';
 import 'package:compitax/Layouts/YourBill/YourBill.dart';
+import 'package:compitax/__test.dart';
 import 'package:flutter/material.dart';
 import 'package:compitax/Layouts/Auth/SignIn.dart';
 import 'package:compitax/Layouts/Auth/SignUp.dart';
@@ -99,6 +100,10 @@ class MyApp extends StatelessWidget {
         initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
+          '/__test': (BuildContext context) => const Test__(),
+
+
+
           '/onboarding': (BuildContext context) => const Splash(
                 navigator: LangSelect(),
               ),

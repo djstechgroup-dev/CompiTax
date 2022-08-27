@@ -14,7 +14,7 @@ class AboutUs extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-              "Welcome to Taxi Comparison Service!\n We're the essential Top Services Provider base on online services as well as offline car rental services.",
+              "Welcome to Taxi Comparison Service!\n We're the essential Top Services Provider base on online services as well as offline car rental services.Just open the app and enter where you want to go, and a nearby driver will help you get there reliably. Request a ride from 600+ airports and in 10,000+ cities around the world, the Uber app is a great way to make your travel plans stress-free. Request a ride on demand or schedule one ahead of time.",
               style: Theme.of(context).textTheme.headline5,
             ),
             const SizedBox(height: 150)

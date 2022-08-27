@@ -52,7 +52,7 @@ class ImageSplash extends StatelessWidget {
       type: Transition.rightToLeftWithFade,
       curve: Curves.fastLinearToSlowEaseIn,
       backgroundColor: GlobalColors.initial,
-      durationInSeconds: 3,
+      durationInSeconds: 5,
       child: Image.asset(
         'assets/imgs/app_logos/logo.png',
         // fit: BoxFit.fill,

@@ -18,16 +18,20 @@ class ShareApp extends StatelessWidget {
       {'name': '666', 'color': 'teal'},
       {'name': '111', 'color': 'red'},
       {'name': '222', 'color': 'blue'},
+      {'name': '222', 'color': 'blue'},
       {'name': '333', 'color': 'yellow'},
       {'name': '444', 'color': 'green'},
       {'name': '555', 'color': 'red'},
       {'name': '666', 'color': 'teal'},
       {'name': '111', 'color': 'red'},
       {'name': '222', 'color': 'blue'},
+      {'name': '222', 'color': 'blue'},
       {'name': '333', 'color': 'yellow'},
       {'name': '444', 'color': 'green'},
       {'name': '555', 'color': 'red'},
       {'name': '666', 'color': 'teal'},
+      {'name': '111', 'color': 'red'},
+      {'name': '222', 'color': 'blue'},
     ];
 
     Size deviceSize = MediaQuery.of(context).size;
@@ -40,7 +44,7 @@ class ShareApp extends StatelessWidget {
 
           // content part
           SliverPadding(
-            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
             sliver: SliverGrid.count(
               mainAxisSpacing: 10,
               crossAxisSpacing: 15,
@@ -49,7 +53,7 @@ class ShareApp extends StatelessWidget {
               children: dummyData
                   .map((each) => Container(
                         margin: const EdgeInsets.all(10),
-                        color: Colors.lightBlue,
+                        // color: Colors.lightBlue,
                         child: Container(
                           child: Column(
                             children: [
@@ -65,11 +69,16 @@ class ShareApp extends StatelessWidget {
                   .toList(),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Text(
-              'Copyright 2022',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 26),
+          SliverToBoxAdapter(
+            child: Column(
+              children: const [
+                Text(
+                  'Copyright 2022',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 26),
+                ),
+                SizedBox(height: 20)
+              ],
             ),
           ),
 

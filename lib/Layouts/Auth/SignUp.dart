@@ -85,6 +85,8 @@ class SignUp extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
                             child: TextField(
+                              obscureText: true,
+                              keyboardType: TextInputType.visiblePassword,
                               decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Password',
@@ -101,7 +103,8 @@ class SignUp extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: TextField(
-                              keyboardType: TextInputType.number,
+                              obscureText: true,
+                              keyboardType: TextInputType.visiblePassword,
                               decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Confirm',

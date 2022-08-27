@@ -6,6 +6,7 @@ class FareDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
     return AlertDialog(
         title: Container(
             decoration: const BoxDecoration(
@@ -21,7 +22,7 @@ class FareDialog extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 5),
                   child: Text(
                     'Total Bill : \$32.00',
-                    // style: Theme.of(context).textTheme.headline4,
+                    // style: textTheme.headline4,
                     style: TextStyle(color: GlobalColors.black, fontSize: 34),
                     textAlign: TextAlign.center,
                   ),
@@ -112,10 +113,8 @@ class FareDialog extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Normal Fare',
-                              style: Theme.of(context).textTheme.headline6),
-                          Text('\$15.08',
-                              style: Theme.of(context).textTheme.headline6),
+                          Text('Normal Fare', style: textTheme.headline6),
+                          Text('\$15.08', style: textTheme.headline6),
                         ],
                       ),
                       const SizedBox(height: 10),
@@ -151,10 +150,8 @@ class FareDialog extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Subtotal',
-                              style: Theme.of(context).textTheme.headline6),
-                          Text('\$34.68',
-                              style: Theme.of(context).textTheme.headline6),
+                          Text('Subtotal', style: textTheme.headline6),
+                          Text('\$34.68', style: textTheme.headline6),
                         ],
                       ),
                       const SizedBox(height: 10),
@@ -176,6 +173,14 @@ class FareDialog extends StatelessWidget {
                   ),
                 ),
                 const Divider(thickness: 1, color: GlobalColors.border),
+                Row(children: [
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'CHARGED',
+                        style: textTheme.overline,
+                      ))
+                ]),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -183,12 +188,11 @@ class FareDialog extends StatelessWidget {
                         child: Container(
                           height: 30,
                           color: Colors.grey,
-                          child: Row(
-                              children: [Text('=========================')]),
+                          child: Row(children: [Text('')]),
                         ),
                       ),
-                      Text('\$32.00',
-                          style: Theme.of(context).textTheme.headline6),
+                      const SizedBox(width: 10),
+                      Text('\$32.00', style: textTheme.headline6),
                     ]),
                 const SizedBox(height: 5)
               ],
@@ -201,7 +205,7 @@ class FareDialog extends StatelessWidget {
                       color: GlobalColors.primary,
                       child: TextButton(
                           onPressed: () {
-                            Navigator.pop(context, 'PAY confirmed!');
+                            Navigator.of(context).pushNamed('/your_bill');
                           },
                           child: const Text(
                             'PAY NOW',
