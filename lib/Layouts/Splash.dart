@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animated_splash/flutter_animated_splash.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 
+import 'package:get_storage/get_storage.dart';
+
 class TextSplash extends StatelessWidget {
   const TextSplash({Key? key}) : super(key: key);
 
@@ -68,6 +70,13 @@ class Splash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GetStorage __store = GetStorage('compitax_data');
+    __store.write('lang', 'English');
+    __store.write('rating', {
+      'num': 1.0, 'mode': 1,
+      //  'icon': Icons.star
+    });
+
     return ImageSplash(navigator: navigator!);
   }
 }

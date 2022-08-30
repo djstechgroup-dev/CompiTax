@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:another_flushbar/flushbar.dart';
 import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
 import 'package:compitax/Layouts/MainBoard/FareDialog.dart';
 import 'package:compitax/theme/colors.dart';
@@ -11,82 +12,110 @@ class LeftSideDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    return Drawer(
+    TextTheme textTheme = Theme.of(context).textTheme;
+
+    return SafeArea(
+        child: Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-              decoration:
-                  const BoxDecoration(color: GlobalColors.bgColorScreen),
-              child: Material(
-                shape: const CircleBorder(
-                  side: BorderSide.none,
-                ),
-                child: CircleAvatar(
-                  backgroundColor: GlobalColors.bgColorScreen,
-    // radius: deviceSize.width / 3,
-                  backgroundImage: const AssetImage('assets/imgs/user1.jpg'),
-                ),
-              )),
-          // const DrawerHeader(
-          //   decoration: BoxDecoration(
-          //       color: Colors.green,
-          //       image: DecorationImage(
-          //         fit: BoxFit.fill,
-          //         image: AssetImage('assets/imgs/user1.jpg'),
-          //       )),
-          //   child: Text(
-          //     'Side menu',
-          //     style: TextStyle(color: Colors.white, fontSize: 25),
-          //   ),
+          // DrawerHeader(
+          //   decoration: const BoxDecoration(color: GlobalColors.bgColorScreen),
+          //   child:
+          Container(
+              // color: GlobalColors.info,
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Material(
+                      shape: const CircleBorder(
+                        side: BorderSide.none,
+                      ),
+                      child: CircleAvatar(
+                        radius: deviceSize.width / 8,
+                        backgroundImage: AssetImage(
+                          'assets/imgs/user1.jpg',
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text('Hi, friend!', style: textTheme.headline3),
+                    const SizedBox(height: 10),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/my_account');
+                        },
+                        child: Text('View profile',
+                            style: textTheme.headline6!.copyWith(
+                                decoration: TextDecoration.underline)))
+                  ])),
           // ),
-          ListTile(
-            leading: const Icon(Icons.local_taxi),
-            title: const Text('BOOK YOUR RIDE'),
-            onTap: () => {Navigator.of(context).pushNamed('/main')},
+          Image.asset('assets/imgs/extra/_border_l.png',
+              width: deviceSize.width),
+          CustomListItem(
+              title: 'PROVIDERS',
+              leadingIcon: Icons.local_taxi,
+              onTap: () {
+                Navigator.of(context).pushNamed('/providers');
+              }),
+          CustomListItem(
+              title: 'MY PROFILE',
+              leadingIcon: Icons.account_box_outlined,
+              onTap: () {
+                Navigator.of(context).pushNamed('/providers');
+              }),
+
+          CustomListItem(
+            title: 'BOOK YOUR RIDE',
+            leadingIcon: Icons.local_taxi,
+            onTap: () {
+              Navigator.of(context).pushNamed('/main');
+            },
           ),
-          ListTile(
-            leading: const Icon(Icons.book_outlined),
-            title: const Text('MY BOOKS'),
-            onTap: () => {Navigator.of(context).pushNamed('/my_bookings')},
+          CustomListItem(
+            leadingIcon: Icons.book_outlined,
+            title: 'TRIP HISTORY',
+            // title: 'MY BOOKS'),
+            onTap: () => {Navigator.of(context).pushNamed('/trip_history')},
           ),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('SETTINGS'),
+          CustomListItem(
+            leadingIcon: Icons.settings,
+            title: 'SETTINGS',
             onTap: () => {Navigator.of(context).pushNamed('/settings')},
           ),
-          ListTile(
-            leading: const Icon(Icons.share),
-            title: const Text('SHARE APP'),
+          CustomListItem(
+            leadingIcon: Icons.share,
+            title: 'SHARE APP',
             onTap: () => {Navigator.of(context).pushNamed('/share_app')},
           ),
-          ListTile(
-            leading: const Icon(Icons.star_rate),
-            title: const Text('RATE APP'),
+          CustomListItem(
+            leadingIcon: Icons.star_rate,
+            title: 'RATE APP',
             onTap: () => {Navigator.of(context).pushNamed('/rating')},
           ),
-          ListTile(
-            leading: const Icon(Icons.phone_in_talk),
-            title: const Text('CONTACT UP'),
+          CustomListItem(
+            leadingIcon: Icons.phone_in_talk,
+            title: 'CONTACT UP',
             onTap: () => {Navigator.of(context).pushNamed('/contact_us')},
           ),
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: const Text('ABOUT US'),
+          CustomListItem(
+            leadingIcon: Icons.info,
+            title: 'ABOUT US',
             onTap: () => {Navigator.of(context).pushNamed('/about_us')},
           ),
-          ListTile(
-            leading: const Icon(Icons.support),
-            title: const Text('SUPPORT'),
+          CustomListItem(
+            leadingIcon: Icons.support,
+            title: 'SUPPORT',
             onTap: () => {Navigator.of(context).pushNamed('/support')},
           ),
-          ListTile(
-            leading: const Icon(Icons.power_settings_new),
-            title: const Text('LOGOUT'),
+          CustomListItem(
+            leadingIcon: Icons.power_settings_new,
+            title: 'LOGOUT',
             onTap: () => {Navigator.of(context).pop()},
           ),
-          ListTile(
-            title: const Text('why cancel alert'),
+          CustomListItem(
+            title: 'why cancel alert',
             onTap: () async {
               String? result = await showDialog<String>(
                 context: context,
@@ -99,8 +128,8 @@ class LeftSideDrawer extends StatelessWidget {
               }
             },
           ),
-          ListTile(
-            title: const Text('total bill alert'),
+          CustomListItem(
+            title: 'total bill alert',
             onTap: () async {
               String? result = await showDialog<String>(
                 context: context,
@@ -113,23 +142,58 @@ class LeftSideDrawer extends StatelessWidget {
               }
             },
           ),
-          ListTile(
-              title: const Text('booking detail page'),
+          CustomListItem(
+              title: 'booking detail page',
               onTap: () {
                 Navigator.of(context).pushNamed('/booking_detail');
               }),
-          ListTile(
-              title: const Text('your bill page'),
+          CustomListItem(
+              title: 'your bill page',
               onTap: () {
                 Navigator.of(context).pushNamed('/your_bill');
               }),
-          ListTile(
-              title: const Text('booking confirmed page'),
+          CustomListItem(
+              title: 'booking confirmed page',
               onTap: () {
                 Navigator.of(context).pushNamed('/booking_confirmed');
               }),
         ],
       ),
-    );
+    ));
+  }
+}
+
+class CustomListItem extends StatelessWidget {
+  late IconData? leadingIcon;
+  late String title;
+  late dynamic onTap;
+  CustomListItem({Key? key, this.onTap, this.leadingIcon, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
+    TextTheme textTheme = Theme.of(context).textTheme;
+
+    return GestureDetector(
+        onTap: onTap ?? () {},
+        child: Container(
+            color: GlobalColors.bgColorScreen,
+            // color: GlobalColors.bgColorScreen,
+            padding: const EdgeInsets.all(10),
+            child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    color: GlobalColors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(children: [
+                  if (leadingIcon != null)
+                    Icon(
+                      leadingIcon,
+                      size: deviceSize.width / 8,
+                    ),
+                  const SizedBox(width: 20),
+                  Text(title, style: textTheme.headline6),
+                ]))));
   }
 }

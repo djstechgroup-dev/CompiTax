@@ -89,7 +89,6 @@ flutter:
     - assets/imgs/stamp/1-completed.png
     - assets/imgs/stamp/1-cancelled.png
 
-
     #
     - assets/imgs/extra/_border_s.png
     - assets/imgs/extra/_border_l.png
@@ -100,7 +99,6 @@ flutter:
     - assets/imgs/extra/check.png
     - assets/imgs/extra/from_to.png
     - assets/imgs/extra/paidByOlaMoney.png
-    
 
     # background
     - assets/imgs/bg/img1.jpg
@@ -127,6 +125,23 @@ flutter:
     - assets/imgs/user1.jpg
     - assets/imgs/user2.jpg
 
+    # service cimpany logos
+    - assets/providers/bolt/bolt1.png
+    - assets/providers/bolt/bolt2.png
+    - assets/providers/bolt/bolt3.png
+    - assets/providers/bolt/bolt4.png
+    - assets/providers/uber/uber2.png
+    - assets/providers/uber/uber3.png
+    - assets/providers/uber/uber4.png
+    - assets/providers/gett/gett1.png
+    - assets/providers/gett/gett3.png
+    - assets/providers/gett/gett4.png
+
+    - assets/providers/grab1.png
+    - assets/providers/grab3.png
+    - assets/providers/smrt1.png
+    - assets/providers/smrt2.png
+
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -150,5 +165,30 @@ flutter:
     #       - asset: fonts/TrajanPro_Bold.ttf
     #         weight: 700
     #
+
+  fonts:
+    - family: WorkSans
+      fonts:
+        - asset: assets/fonts/WorkSans-Regular.ttf
+        - asset: assets/fonts/WorkSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/WorkSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/WorkSans-Bold.ttf
+          weight: 700
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 400
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+        - asset: assets/fonts/OpenSans-Light.ttf
+          weight: 200
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 600
+
     # For details regarding fonts from package dependencies,
     # see https://flutter.dev/custom-fonts/#from-packages

@@ -5,7 +5,9 @@ import 'package:compitax/Layouts/BookingDetails/BookingDetails.dart';
 import 'package:compitax/Layouts/ContactUs/ContactUs.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
-import 'package:compitax/Layouts/MyBookings/MyBookings.dart';
+import 'package:compitax/Layouts/MyAccount/MyAccount.dart';
+import 'package:compitax/Layouts/TripHistory/TripHistory.dart';
+import 'package:compitax/Layouts/Providers/Providers.dart';
 import 'package:compitax/Layouts/Rating/Rating.dart';
 import 'package:compitax/Layouts/Settings/Settings.dart';
 import 'package:compitax/Layouts/SharedApp/ShareApp.dart';
@@ -55,26 +57,45 @@ ThemeData _buildTheme() {
 TextTheme _buildTextTheme(TextTheme base) {
   return base
       .copyWith(
-        headline5: base.headline5!.copyWith(
-          fontWeight: FontWeight.w500,
-        ),
-        headline6: base.headline6!.copyWith(
-          fontSize: 18.0,
-        ),
+        // headline1: base.headline1!.copyWith(
+        //   fontSize: 18.0,
+        // ),
+        // headline2: base.headline2!.copyWith(
+        //   fontSize: 18.0,
+        // ),
+        // headline3: base.headline3!.copyWith(
+        //   fontSize: 18.0,
+        // ),
+        // headline4: base.headline4!.copyWith(
+        //   fontSize: 18.0,
+        // ),
+        // headline5: base.headline5!.copyWith(
+        //   fontSize: 18.0,
+        // ),
+        // headline6: base.headline6!.copyWith(
+        //   fontSize: 18.0,
+        // ),
         caption: base.caption!.copyWith(
+          fontFamily: 'OpenSans',
           fontWeight: FontWeight.w400,
           fontSize: 14.0,
         ),
         bodyText1: base.bodyText1!.copyWith(
+          fontFamily: 'Roboto',
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+        bodyText2: base.bodyText2!.copyWith(
+          fontFamily: 'WorkSans',
           fontWeight: FontWeight.w500,
           fontSize: 16.0,
         ),
       )
       .apply(
-          // fontFamily: 'Rubik',
-          // displayColor: kBrown900,
-          // bodyColor: kBrown900,
-          );
+        fontFamily: 'Rubik',
+        // displayColor: kBrown900,
+        // bodyColor: kBrown900,
+      );
 }
 
 class MyApp extends StatelessWidget {
@@ -97,13 +118,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/onboarding",
+        initialRoute: "/providers",
+        // initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           '/__test': (BuildContext context) => const Test__(),
-
-
-
           '/onboarding': (BuildContext context) => const Splash(
                 navigator: LangSelect(),
               ),
@@ -112,8 +131,8 @@ class MyApp extends StatelessWidget {
           "/sign_in": (BuildContext context) => const SignIn(),
           "/sign_up": (BuildContext context) => const SignUp(),
           "/main": (BuildContext context) => SecureRender(const MainBoard()),
-          "/my_bookings": (BuildContext context) =>
-              SecureRender(const MyBookings()),
+          "/trip_history": (BuildContext context) =>
+              SecureRender(const TripHistory()),
           "/settings": (BuildContext context) => SecureRender(const Settings()),
           "/share_app": (BuildContext context) =>
               SecureRender(const ShareApp()),
@@ -128,6 +147,10 @@ class MyApp extends StatelessWidget {
               SecureRender(const YourBill()),
           "/booking_confirmed": (BuildContext context) =>
               SecureRender(const BookingConfirmed()),
+          "/providers": (BuildContext context) =>
+              SecureRender(const Providers()),
+          "/my_account": (BuildContext context) =>
+              SecureRender(const MyAccount()),
         });
   }
 }
