@@ -52,13 +52,15 @@ class CustomSnackBarView extends StatelessWidget {
 void showFloatingFlushbar(
     {@required BuildContext? context,
     @required String? message,
-    @required bool? isError}) {
+    bool? isError}) {
   Flushbar? flush;
   bool? _wasButtonClicked;
   flush = Flushbar<bool>(
+    
     title: "Hey User",
     message: message,
-    backgroundColor: isError! ? GlobalColors.error : GlobalColors.success,
+    backgroundColor:
+        (isError == true) ? GlobalColors.success : GlobalColors.error,
     duration: const Duration(seconds: 3),
     margin: const EdgeInsets.all(20),
     icon: const Icon(
@@ -83,14 +85,15 @@ void showFloatingFlushbar(
 void showSnackBar(
     {@required BuildContext? context,
     @required String? message,
-    @required bool? isError}) {
+    bool? isError}) {
   final snackBar = SnackBar(
     content: Text(
       message!,
       style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
     ),
     duration: const Duration(seconds: 3),
-    backgroundColor: isError! ? GlobalColors.error : GlobalColors.success,
+    backgroundColor:
+        (isError == true) ? GlobalColors.success : GlobalColors.error,
     // width: MediaQuery.of(context!).size.width,
     padding: const EdgeInsets.symmetric(horizontal: 20),
     behavior: SnackBarBehavior.floating,

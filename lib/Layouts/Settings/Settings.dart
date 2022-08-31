@@ -1,8 +1,10 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:compitax/theme/colors.dart';
 import 'package:compitax/utilities.dart';
 import 'package:compitax/widgets/SettingCard.dart';
 import 'package:compitax/widgets/layout/AppLayout.dart';
 import 'package:compitax/widgets/layout/TitleAppbar.dart';
+import 'package:compitax/widgets/snackbar/FLoatingFlushbar.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -135,10 +137,12 @@ class _SettingsState extends State<Settings> {
                           child: TextButton(
                               style: btnStyleGenerator(GlobalColors.primary),
                               onPressed: () {
-                                const snackBar = SnackBar(
-                                    content: Text('Passwor updated crrectly!'));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
+                                Flushbar snackbar = showFloatingFlushbar(
+                                    context: context,
+                                    message: 'Passwor updated crrectly!');
+                                snackbar.show(context).then((val) {
+                                  print(val);
+                                });
                               },
                               child: const Text(
                                 'UPDATE',

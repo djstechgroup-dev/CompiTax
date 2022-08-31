@@ -13,12 +13,14 @@ class MainBoard extends StatefulWidget {
 }
 
 class _MainBoardState extends State<MainBoard> {
-  late bool bListView;
+  late bool bLocationList;
+  late bool bTaxiList;
 
   @override
   void initState() {
     super.initState();
-    bListView = false;
+    bLocationList = false;
+    bTaxiList = false;
   }
 
   @override
@@ -40,7 +42,7 @@ class _MainBoardState extends State<MainBoard> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        bListView = !bListView;
+                        bLocationList = !bLocationList;
                       });
                     },
                     child: Container(
@@ -89,7 +91,7 @@ class _MainBoardState extends State<MainBoard> {
                   child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          bListView = !bListView;
+                          bLocationList = !bLocationList;
                         });
                       },
                       child: Container(
@@ -133,17 +135,24 @@ class _MainBoardState extends State<MainBoard> {
                 Column(
                   children: [
                     Expanded(
-                      child: Container(
-                        // width: deviceSize.width,
-                        // height: deviceSize.height,
-                        color: GlobalColors.info,
-                        //  child: Text('Google Map')
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            bTaxiList = !bTaxiList;
+                          });
+                        },
+                        child: Container(
+                          // width: deviceSize.width,
+                          // height: deviceSize.height,
+                          color: GlobalColors.info,
+                          //  child: Text('Google Map')
+                        ),
                       ),
                     )
                   ],
                 ),
                 // bListView ? MapLocationList(context)! : Container(),
-                bListView ? MapLocationList() : Container(),
+                bLocationList ? MapLocationList() : Container(),
                 const Positioned(bottom: 10, right: 10, child: MapSearchBar())
               ],
             ),
@@ -152,27 +161,14 @@ class _MainBoardState extends State<MainBoard> {
 /////////////////////////////////////////////////////////////////////////////////////
 // I have to start here!!!
 /////////////////////////////////////////////////////////////////////////////////////
-          Column(children: [
-            Container(
-              height: 250,
-              width: deviceSize.width,
-              color: Colors.white,
-            ),
-            // TabBar(
-            //   tabs: [
-            //     Tab(icon: Icon(Icons.directions_car)),
-            //     Tab(icon: Icon(Icons.directions_transit)),
-            //     Tab(icon: Icon(Icons.directions_bike)),
-            //   ],
-            // ),
-            // TabBarView(
-            //   children: [
-            //     Icon(Icons.directions_car),
-            //     Icon(Icons.directions_transit),
-            //     Icon(Icons.directions_bike),
-            //   ],
-            // ),
-          ])
+          if (bTaxiList)
+            Column(children: [
+              Container(
+                height: 250,
+                width: deviceSize.width,
+                color: Colors.white,
+              ),
+            ])
         ],
       ),
     );

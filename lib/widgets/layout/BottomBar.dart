@@ -1,7 +1,9 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:another_flushbar/flushbar.dart';
 import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
 import 'package:compitax/theme/colors.dart';
+import 'package:compitax/widgets/snackbar/FloatingFlushbar.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -47,8 +49,11 @@ class BottomBar extends StatelessWidget {
                       builder: (context) => const CancelDialog(),
                     );
                     if (result != null) {
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(SnackBar(content: Text(result)));
+                      Flushbar snackbar = showFloatingFlushbar(
+                          context: context, message: result);
+                      snackbar.show(context).then((val) {
+                        print(val);
+                      });
                     }
                   },
                   child: Column(

@@ -4,6 +4,9 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:compitax/Layouts/MainBoard/CancelDialog.dart';
 import 'package:compitax/Layouts/MainBoard/FareDialog.dart';
 import 'package:compitax/theme/colors.dart';
+import 'package:compitax/widgets/ZigzagDivider.dart';
+import 'package:compitax/widgets/snackbar/FloatingFlushbar.dart';
+import 'package:compitax/widgets/snackbar/NormalSnackbar.dart';
 import 'package:flutter/material.dart';
 
 class LeftSideDrawer extends StatelessWidget {
@@ -51,17 +54,23 @@ class LeftSideDrawer extends StatelessWidget {
                                 decoration: TextDecoration.underline)))
                   ])),
           // ),
-          Image.asset('assets/imgs/extra/_border_l.png',
-              width: deviceSize.width),
+          const ZigzagDivider(),
+
           CustomListItem(
-              title: 'PROVIDERS',
-              leadingIcon: Icons.local_taxi,
+              title: 'Home',
+              leadingIcon: Icons.home_outlined,
               onTap: () {
-                Navigator.of(context).pushNamed('/providers');
+                Navigator.of(context).pushNamed('/home');
               }),
           CustomListItem(
-              title: 'MY PROFILE',
+              title: 'MY ACCOUNT',
               leadingIcon: Icons.account_box_outlined,
+              onTap: () {
+                Navigator.of(context).pushNamed('/my_account');
+              }),
+          CustomListItem(
+              title: 'PROVIDERS',
+              leadingIcon: Icons.compare_rounded,
               onTap: () {
                 Navigator.of(context).pushNamed('/providers');
               }),
@@ -123,8 +132,16 @@ class LeftSideDrawer extends StatelessWidget {
               );
               // bottom snackbar
               if (result != null) {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(result)));
+                Flushbar snackbar =
+                    showFloatingFlushbar(context: context, message: result);
+                snackbar.show(context).then((val) {
+                  print(val);
+                });
+
+                // // normal snackbar
+                // SnackBar snackbar =
+                //     showSnackBar(context: context, message: result);
+                // ScaffoldMessenger.of(context).showSnackBar(snackbar);
               }
             },
           ),
@@ -137,8 +154,11 @@ class LeftSideDrawer extends StatelessWidget {
               );
               // bottom snackbar
               if (result != null) {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(result)));
+                Flushbar snackbar =
+                    showFloatingFlushbar(context: context, message: result);
+                snackbar.show(context).then((val) {
+                  print(val);
+                });
               }
             },
           ),

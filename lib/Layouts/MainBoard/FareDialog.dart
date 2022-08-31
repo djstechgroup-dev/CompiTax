@@ -205,7 +205,10 @@ class FareDialog extends StatelessWidget {
                       color: GlobalColors.primary,
                       child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamed('/your_bill');
+                            // Navigator.of(context).pushNamed('/your_bill',
+                            // arguments: 'the returned value by dialog!!!');
+                            Navigator.of(context).popAndPushNamed('/your_bill',
+                                result: 'the returned value by dialog!!!');
                           },
                           child: const Text(
                             'PAY NOW',

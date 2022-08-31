@@ -3,6 +3,7 @@ import 'package:compitax/Layouts/Auth/SocialSign.dart';
 import 'package:compitax/Layouts/BookingConfirmed/BookingConfirmed.dart';
 import 'package:compitax/Layouts/BookingDetails/BookingDetails.dart';
 import 'package:compitax/Layouts/ContactUs/ContactUs.dart';
+import 'package:compitax/Layouts/Home.dart';
 import 'package:compitax/Layouts/LangSelect.dart';
 import 'package:compitax/Layouts/MainBoard/MainBoard.dart';
 import 'package:compitax/Layouts/MyAccount/MyAccount.dart';
@@ -118,7 +119,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'CompiTax',
         theme: _kTheme,
-        initialRoute: "/providers",
+        initialRoute: "/main",
         // initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
@@ -130,6 +131,7 @@ class MyApp extends StatelessWidget {
           "/social_sign": (BuildContext context) => const SocialSign(),
           "/sign_in": (BuildContext context) => const SignIn(),
           "/sign_up": (BuildContext context) => const SignUp(),
+          "/home": (BuildContext context) => SecureRender(const Home()),
           "/main": (BuildContext context) => SecureRender(const MainBoard()),
           "/trip_history": (BuildContext context) =>
               SecureRender(const TripHistory()),
